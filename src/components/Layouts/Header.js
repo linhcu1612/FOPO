@@ -16,7 +16,9 @@ export default function Header() {
         justifyContent: "space-between",
         alignItems: "center",
       }}
-      mt={3}>
+      mt={3}
+      pb={3}
+      style={{ borderBottom: "1px solid #333333" }}>
       <Link
         href='/'
         className=''
