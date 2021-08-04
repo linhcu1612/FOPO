@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
@@ -30,11 +30,21 @@ const data = [
 ];
 
 export default function Pomodoro() {
-  const currentPomoIndex = data.findIndex(({ isRunning }) => isRunning);
-  console.log(data[currentPomoIndex].minute);
-
-  const [pomoMinute, setPomoMinute] = useState(data[currentPomoIndex].minute);
+  const [pomoData, setPomoData] = useState(data);
+  const currentPomoIndex = pomoData.findIndex(({ isRunning }) => isRunning);
+  const [pomoMinute, setPomoMinute] = useState(
+    pomoData[currentPomoIndex].minute
+  );
   const [pomoSecond, setPomoSecond] = useState(0);
+
+  const pomoTopBarHandler = (id) => {
+    const pomoChangedData = pomoData;
+    pomoChangedData[currentPomoIndex].isRunning = false;
+    pomoChangedData[id - 1].isRunning = true;
+    setPomoData(pomoChangedData);
+    setPomoSecond(0);
+    setPomoMinute(pomoChangedData[id - 1].minute);
+  };
 
   const timerScreenDisplay = () => {
     let minuteDisplay, secondDisplay;
@@ -44,13 +54,14 @@ export default function Pomodoro() {
     return `${minuteDisplay}:${secondDisplay}`;
   };
 
-  const pomoTopBarRender = data.map(({ id, title, isRunning }) => {
+  const pomoTopBarRender = pomoData.map(({ id, title, isRunning }) => {
     return (
       <PomodoroTopBarButton
         color={isRunning ? "secondary" : "inherit"}
         key={id}
         id={id}
         title={title}
+        onClick={pomoTopBarHandler}
       />
     );
   });
