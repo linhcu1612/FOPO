@@ -55,7 +55,7 @@ export default function Pomodoro() {
       setPomoSecond(0);
       setPomoMinute(pomoData[id - 1].minute);
     },
-    [currentPomoIndex, pomoData]
+    [pomoData]
   );
 
   const changePomoHandler = useCallback(() => {
