@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const data = [
   {
@@ -59,10 +60,11 @@ export default function Pomodoro() {
   );
 
   const changePomoHandler = useCallback(() => {
-    if (currentPomoIndex > 1) {
+    console.log(currentPomoIndex);
+    if (currentPomoIndex >= 1) {
       pomoTopBarHandler(1);
     } else {
-      pomoTopBarHandler(currentPomoIndex + 1);
+      pomoTopBarHandler(currentPomoIndex + 2);
     }
   }, [currentPomoIndex, pomoTopBarHandler]);
 
@@ -134,11 +136,26 @@ export default function Pomodoro() {
           justifyContent: "center",
         }}>
         <PomodoroActionButton
+          style={{
+            position: "relative",
+          }}
           variant='contained'
           color='primary'
           title={!pomoRun ? "Start" : "Stop"}
           onClick={actionButtonHandler}
         />
+        {pomoRun ? (
+          <SkipNextIcon
+            style={{
+              cursor: "pointer",
+              position: "absolute",
+              left: "55%",
+            }}
+            onClick={changePomoHandler}
+          />
+        ) : (
+          ""
+        )}
       </CardActions>
     </Card>
   );
