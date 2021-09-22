@@ -2,6 +2,7 @@
 
 import Button from "@material-ui/core/Button";
 import React, { useRef } from "react";
+import classes from "./PomodoroTopBarButton.module.css";
 
 export default function PomodoroTopBarButton(props) {
   const pomoTopBarButton = useRef();
@@ -11,6 +12,7 @@ export default function PomodoroTopBarButton(props) {
   return (
     <Button
       {...props}
+      class={classes.button}
       ref={pomoTopBarButton}
       value={props.id}
       onClick={handlePomoButtonClick}>

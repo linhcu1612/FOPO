@@ -9,23 +9,32 @@ import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
+import classes from "./Pomodoro.module.css";
+
+// need to do:
+// not using Card any more
+// own styling
+
 const data = [
   {
     id: 1,
     title: "Pomodoro",
     minute: 25,
+    color: "red",
     isRunning: true,
   },
   {
     id: 2,
     title: "Short Break",
     minute: 5,
+    color: "green",
     isRunning: false,
   },
   {
     id: 3,
     title: "Long Break",
     minute: 15,
+    color: "blue",
     isRunning: false,
   },
   {
@@ -37,6 +46,7 @@ const data = [
 ];
 
 export default function Pomodoro() {
+  //useReducer ?
   const [pomoData, setPomoData] = useState(data);
   const [currentPomoIndex, setCurrentPomoIndex] = useState(0);
   const [pomoMinute, setPomoMinute] = useState(pomoData[0].minute);
@@ -109,6 +119,7 @@ export default function Pomodoro() {
         key={id}
         id={id}
         title={title}
+        isRunning={isRunning}
         onClick={pomoTopBarHandler}
       />
     );
@@ -126,7 +137,11 @@ export default function Pomodoro() {
         {pomoTopBarRender}
       </CardContent>
       <CardHeader
-        style={{ textAlign: "center" }}
+        style={{
+          textAlign: "center",
+          fontSize: "120px",
+          fontWeight: "bold",
+        }}
         title={timerScreenDisplay()}
       />
       <CardActions

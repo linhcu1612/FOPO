@@ -7,6 +7,7 @@ export default function UserAvatar() {
   return (
     <Button variant='contained'>
       <AccountCircleIcon />
+      Login
     </Button>
   );
 }
