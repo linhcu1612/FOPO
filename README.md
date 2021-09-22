@@ -1,3 +1,9 @@
+<!-- @format -->
+
+# Project Header
+
+This project is front-end focused for building a clone of Pomofocus which is an application that support me during my study time
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
