@@ -2,7 +2,7 @@
 
 import React from "react";
 import Pomodoro from "../Pomodoros/Pomodoro";
-import Tasks from "../Tasks/Task";
+import Tasks from "../Tasks/Tasks";
 
 export default function Main() {
   return (
