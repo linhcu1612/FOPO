@@ -1,6 +1,6 @@
 /** @format */
 
-import { Container } from "@material-ui/core";
+import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
 import "./App.css";

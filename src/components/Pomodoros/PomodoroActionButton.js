@@ -1,6 +1,5 @@
 /** @format */
 
-import Button from "@material-ui/core/Button";
 import React from "react";
 import classes from "./PomodoroActionButton.module.css";
 

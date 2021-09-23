@@ -1,12 +1,11 @@
 /** @format */
 
 import React, { useState, useEffect, useCallback } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -130,9 +129,11 @@ export default function Pomodoro() {
     <Card
       sx={{ maxWidth: 345 }}
       style={{
-        margin: "60px 100px",
+        margin: "60px auto",
         paddingBottom: "20px",
+        width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.1)",
+        maxWidth: "1000px",
       }}>
       <Stack
         direction='row'

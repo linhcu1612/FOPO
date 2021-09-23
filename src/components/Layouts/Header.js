@@ -1,12 +1,12 @@
 /** @format */
 
 import React from "react";
-import Box from "@material-ui/core/Box";
+import Box from "@mui/material/Box";
 import ReportButton from "../UIs/ReportButton";
 import SettingButton from "../UIs/SettingButton";
 import UserAvatar from "../UIs/UserAvatar";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import Link from "@material-ui/core/Link";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
 export default function Header() {

@@ -1,6 +1,6 @@
 /** @format */
-import SettingsIcon from "@material-ui/icons/Settings";
-import Button from "@material-ui/core/Button";
+import SettingsIcon from "@mui/icons-material/Settings";
+import Button from "@mui/material/Button";
 import React from "react";
 
 export default function SettingButton() {
