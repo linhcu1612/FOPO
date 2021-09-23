@@ -7,6 +7,7 @@ import SettingButton from "../UIs/SettingButton";
 import UserAvatar from "../UIs/UserAvatar";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Link from "@material-ui/core/Link";
+import Stack from "@mui/material/Stack";
 
 export default function Header() {
   return (
@@ -17,8 +18,7 @@ export default function Header() {
         alignItems: "center",
       }}
       mt={3}
-      pb={3}
-      style={{ borderBottom: "1px solid #333333" }}>
+      pb={3}>
       <Link
         href='/'
         className=''
@@ -26,15 +26,16 @@ export default function Header() {
         style={{
           display: "flex",
           alignItems: "center",
+          color: "white",
         }}>
         <CheckCircleIcon style={{ marginRight: "5px" }} />
         Pomofocus
       </Link>
-      <Box>
+      <Stack direction='row' spacing={2}>
         <ReportButton />
         <SettingButton />
         <UserAvatar />
-      </Box>
+      </Stack>
     </Box>
   );
 }

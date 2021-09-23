@@ -2,14 +2,19 @@
 
 import Button from "@material-ui/core/Button";
 import React from "react";
+import classes from "./PomodoroActionButton.module.css";
 
 export default function PomodoroActionButton(props) {
   const handlePomoActionButtonClick = () => {
     props.onClick();
   };
   return (
-    <Button {...props} value={props.id} onClick={handlePomoActionButtonClick}>
+    <button
+      {...props}
+      className={classes.button}
+      value={props.id}
+      onClick={handlePomoActionButtonClick}>
       {props.title}
-    </Button>
+    </button>
   );
 }

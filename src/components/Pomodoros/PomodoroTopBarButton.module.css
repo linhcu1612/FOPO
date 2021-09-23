@@ -1,1 +1,8 @@
 /** @format */
+.button {
+  color: white;
+}
+
+.button .active {
+  background: none rgba(0, 0, 0, 0.15);
+}

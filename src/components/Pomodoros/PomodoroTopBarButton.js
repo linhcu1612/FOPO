@@ -12,7 +12,13 @@ export default function PomodoroTopBarButton(props) {
   return (
     <Button
       {...props}
-      class={classes.button}
+      style={{
+        marginRight: "10px",
+        marginLeft: "10px",
+        color: "white",
+        border: "none",
+      }}
+      variant={props.isRunning ? "contained" : "outlined"}
       ref={pomoTopBarButton}
       value={props.id}
       onClick={handlePomoButtonClick}>

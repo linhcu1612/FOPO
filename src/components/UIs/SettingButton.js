@@ -5,8 +5,14 @@ import React from "react";
 
 export default function SettingButton() {
   return (
-    <Button variant='contained' style={{ marginRight: "20px" }}>
-      <SettingsIcon style={{ marginRight: "5px" }} />
+    <Button
+      variant='outlined'
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        border: "none",
+        color: "white",
+      }}
+      startIcon={<SettingsIcon />}>
       Setting
     </Button>
   );

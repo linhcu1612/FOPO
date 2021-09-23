@@ -2,18 +2,23 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
 
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import classes from "./Pomodoro.module.css";
 
 // need to do:
-// not using Card any more
-// own styling
+// not using Card any more MUI v5 ? x
+// own styling x
+// CardHeader => Stack MUI x
+// store all time as second then convert it to minute
+// line under topbar can update the size
 
 const data = [
   {
@@ -70,7 +75,6 @@ export default function Pomodoro() {
   );
 
   const changePomoHandler = useCallback(() => {
-    console.log(currentPomoIndex);
     if (currentPomoIndex >= 1) {
       pomoTopBarHandler(1);
     } else {
@@ -90,8 +94,6 @@ export default function Pomodoro() {
         } else {
           setPomoSecond((prev) => prev - 1);
         }
-      } else {
-        setPomoSecond(0);
       }
     }, 1000);
 
@@ -115,7 +117,7 @@ export default function Pomodoro() {
   const pomoTopBarRender = pomoData.map(({ id, title, isRunning }) => {
     return (
       <PomodoroTopBarButton
-        color={isRunning ? "secondary" : "inherit"}
+        // color={isRunning ? "secondary" : "inherit"}
         key={id}
         id={id}
         title={title}
@@ -127,23 +129,31 @@ export default function Pomodoro() {
   return (
     <Card
       sx={{ maxWidth: 345 }}
-      style={{ margin: "60px 100px", paddingBottom: "20px" }}>
-      <CardContent
-        style={{
-          display: "flex",
-          textAlign: "center",
-          justifyContent: "center",
-        }}>
+      style={{
+        margin: "60px 100px",
+        paddingBottom: "20px",
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+      }}>
+      <Stack
+        direction='row'
+        spacing={2}
+        mt={2}
+        mb={5}
+        style={{ display: "flex", justifyContent: "center" }}>
         {pomoTopBarRender}
-      </CardContent>
-      <CardHeader
+      </Stack>
+      <Typography
         style={{
           textAlign: "center",
           fontSize: "120px",
           fontWeight: "bold",
+          color: "white",
         }}
-        title={timerScreenDisplay()}
-      />
+        variant='h1'
+        component='div'
+        gutterBottom>
+        {timerScreenDisplay()}
+      </Typography>
       <CardActions
         style={{
           display: "flex",
@@ -156,7 +166,7 @@ export default function Pomodoro() {
           }}
           variant='contained'
           color='primary'
-          title={!pomoRun ? "Start" : "Stop"}
+          title={!pomoRun ? "START" : "STOP"}
           onClick={actionButtonHandler}
         />
         {pomoRun ? (
@@ -164,7 +174,10 @@ export default function Pomodoro() {
             style={{
               cursor: "pointer",
               position: "absolute",
-              left: "55%",
+              left: "62%",
+              width: "55px",
+              height: "55px",
+              color: "white",
             }}
             onClick={changePomoHandler}
           />

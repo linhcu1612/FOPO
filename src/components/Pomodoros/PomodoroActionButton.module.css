@@ -1,0 +1,15 @@
+/** @format */
+
+.button {
+  cursor: pointer;
+  border: none;
+  margin: 0px 0px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  font-size: 22px;
+  height: 55px;
+  color: rgb(219, 82, 77);
+  font-weight: bold;
+  width: 200px;
+  background-color: white;
+}

@@ -1,1 +1,10 @@
 /** @format */
+body {
+  background-color: rgb(219, 82, 77);
+  min-height: 747px;
+  width: 100%;
+  color: white;
+  transition: background-color 0.5s ease-in-out 0s;
+  padding-bottom: 12px;
+  box-sizing: border-box;
+}
