@@ -2,6 +2,7 @@
 
 import React from "react";
 import Pomodoro from "../Pomodoros/Pomodoro";
+import Tasks from "../Tasks/Task";
 
 export default function Main() {
   return (
@@ -16,6 +17,7 @@ export default function Main() {
         <div className=''></div>
       </div>
       <Pomodoro />
+      <Tasks />
     </>
   );
 }

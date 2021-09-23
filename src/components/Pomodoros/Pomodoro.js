@@ -41,12 +41,6 @@ const data = [
     color: "blue",
     isRunning: false,
   },
-  {
-    id: 4,
-    title: "Test",
-    minute: 1,
-    isRunning: false,
-  },
 ];
 
 export default function Pomodoro() {
