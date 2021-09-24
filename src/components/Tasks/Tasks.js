@@ -12,7 +12,7 @@ const DUMMY_TASK_LIST = [
     id: "m1",
     title: "This is a test task",
     estimatedPomo: 1,
-    pomoDone: 1,
+    pomoDone: 0,
     note: "Testing Purpose",
     isDoing: false,
   },
@@ -28,7 +28,7 @@ const DUMMY_TASK_LIST = [
 
 const Task = () => {
   return (
-    <div>
+    <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
       <TasksList lists={DUMMY_TASK_LIST} />
