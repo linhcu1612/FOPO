@@ -8,9 +8,12 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import classes from "./Task.module.css";
 
 const Task = (props) => {
+  const isDoingClass = props.isDoing ? classes.task_current : "";
+  const taskClasses = classes.task + " " + isDoingClass;
+
   return (
     <div
-      className={classes.task}
+      className={taskClasses}
       style={{
         display: "flex",
         justifyContent: "space-between",
@@ -23,12 +26,9 @@ const Task = (props) => {
         className={classes.task_left}
         style={{ display: "flex", alignItems: "center" }}>
         <Button className={classes.task_left_done_button}>
-          <CheckCircleIcon
-            className={classes.task_left_done_icon}
-            style={{ color: "rgb(223, 223, 223)" }}
-          />
+          <CheckCircleIcon className={classes.task_left_done_icon} />
         </Button>
-        <div className=''>{props.title}</div>
+        <div className={classes.task_title}>{props.title}</div>
       </div>
       {/* rightside */}
       <div className='' style={{ display: "flex", alignItems: "center" }}>

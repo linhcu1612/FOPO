@@ -14,7 +14,7 @@ const DUMMY_TASK_LIST = [
     estimatedPomo: 1,
     pomoDone: 0,
     note: "Testing Purpose",
-    isDoing: false,
+    isDoing: true,
   },
   {
     id: "m2",
