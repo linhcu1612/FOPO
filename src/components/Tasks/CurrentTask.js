@@ -21,6 +21,7 @@ const CurrentTask = (props) => {
           fontSize: "18px",
           color: "white",
           overflowWrap: "break-word",
+          fontWeight: "bold",
         }}>
         Time for a break!
       </div>

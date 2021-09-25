@@ -2,7 +2,7 @@
 
 import Button from "@mui/material/Button";
 import React, { useRef } from "react";
-//import classes from "./PomodoroTopBarButton.module.css";
+import classes from "./PomodoroTopBarButton.module.css";
 
 export default function PomodoroTopBarButton(props) {
   const pomoTopBarButton = useRef();
@@ -11,14 +11,15 @@ export default function PomodoroTopBarButton(props) {
   };
   return (
     <Button
-      {...props}
       style={{
         marginRight: "10px",
         marginLeft: "10px",
         color: "white",
         border: "none",
+        textTransform: "unset",
       }}
       variant={props.isRunning ? "contained" : "outlined"}
+      className={props.isRunning ? classes.active : ""}
       ref={pomoTopBarButton}
       value={props.id}
       onClick={handlePomoButtonClick}>

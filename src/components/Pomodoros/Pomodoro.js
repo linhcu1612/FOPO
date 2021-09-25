@@ -10,7 +10,7 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-//import classes from "./Pomodoro.module.css";
+import classes from "./Pomodoro.module.css";
 
 // need to do:
 // not using Card any more MUI v5 ? x
@@ -110,7 +110,6 @@ export default function Pomodoro() {
   const pomoTopBarRender = pomoData.map(({ id, title, isRunning }) => {
     return (
       <PomodoroTopBarButton
-        // color={isRunning ? "secondary" : "inherit"}
         key={id}
         id={id}
         title={title}
@@ -140,10 +139,10 @@ export default function Pomodoro() {
       <Typography
         style={{
           textAlign: "center",
-          fontSize: "120px",
-          fontWeight: "bold",
           color: "white",
+          fontFamily: "Nunito",
         }}
+        className={classes.timer}
         variant='h1'
         component='div'
         gutterBottom>

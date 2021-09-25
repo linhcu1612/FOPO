@@ -7,7 +7,9 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const AddTask = () => {
   return (
-    <Button className={classes.button} startIcon={<AddCircleIcon />}>
+    <Button
+      className={classes.button}
+      startIcon={<AddCircleIcon style={{ fontSize: "24px" }} />}>
       <div className={classes.button_text}>Add Task</div>
     </Button>
   );

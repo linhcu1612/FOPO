@@ -1,1 +1,6 @@
 /** @format */
+.timer {
+  font-size: 120px !important;
+  font-weight: bold !important;
+  margin-top: 20px !important;
+}
