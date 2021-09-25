@@ -32,7 +32,7 @@
 
 .task_left_done_button {
   margin-right: 10px !important;
-  border-radius: 50%;
+  border-radius: 50% !important;
   min-width: 0 !important;
   padding: 0;
   min-width: 0;

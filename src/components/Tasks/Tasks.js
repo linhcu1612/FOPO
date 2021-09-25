@@ -6,6 +6,7 @@ import CurrentTask from "./CurrentTask";
 import TasksConfig from "./TasksConfig";
 import TasksList from "./TasksList";
 import AddTask from "./AddTask";
+import EstTask from "./EstTask";
 
 const DUMMY_TASK_LIST = [
   {
@@ -33,6 +34,7 @@ const Task = () => {
       <TasksConfig />
       <TasksList lists={DUMMY_TASK_LIST} />
       <AddTask />
+      <EstTask />
     </div>
   );
 };

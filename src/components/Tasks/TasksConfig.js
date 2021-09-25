@@ -12,7 +12,7 @@ const TasksConfig = () => {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "15px 0",
-        borderBottom: "1px solid white",
+        borderBottom: "2px solid rgba(255, 255, 255, 0.6)",
       }}>
       <div className='' style={{ fontSize: "18px", fontWeight: "bold" }}>
         Tasks

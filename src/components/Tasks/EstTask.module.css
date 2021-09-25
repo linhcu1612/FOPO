@@ -1,0 +1,26 @@
+/** @format */
+
+.wrapper {
+  margin-top: 28px;
+  padding: 20px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.est_block {
+  margin: 0px 8px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.est_time {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 4px;
+}
