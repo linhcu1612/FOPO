@@ -1,10 +1,9 @@
 /** @format */
 body {
-  background-color: rgb(219, 82, 77);
-  min-height: 747px;
-  width: 100%;
+  background: url("./assets/background.jpg") no-repeat center center fixed;
+  min-width: 100%;
+  min-height: 100%;
   color: white;
-  transition: background-color 0.5s ease-in-out 0s;
   padding-bottom: 12px;
   box-sizing: border-box;
 }

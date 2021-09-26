@@ -30,7 +30,7 @@ export default function Header() {
           fontWeight: "bold",
           fontSize: "20px",
         }}>
-        <CheckCircleIcon style={{ marginRight: "5px", width: "20px" }} />
+        <CheckCircleIcon style={{ marginRight: "5px", width: "25px" }} />
         Pomofocus
       </Link>
       <Stack direction='row' spacing={2}>

@@ -9,7 +9,9 @@ const AddTask = () => {
   return (
     <Button
       className={classes.button}
-      startIcon={<AddCircleIcon style={{ fontSize: "24px" }} />}>
+      startIcon={
+        <AddCircleIcon style={{ fontSize: "24px", opacity: "0.8" }} />
+      }>
       <div className={classes.button_text}>Add Task</div>
     </Button>
   );

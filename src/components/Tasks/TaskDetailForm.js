@@ -77,7 +77,13 @@ const TaskDetailForm = () => {
         <Button className={classes.action_delete_cancel}>Delete</Button>
         <div className=''>
           <Button className={classes.action_delete_cancel}>Cancel</Button>
-          <Button className={classes.action_save}>Save</Button>
+          {estPomo === 0 ? (
+            <Button className={classes.action_save_disabled} disabled>
+              Save
+            </Button>
+          ) : (
+            <Button className={classes.action_save}>Save</Button>
+          )}
         </div>
       </div>
     </div>

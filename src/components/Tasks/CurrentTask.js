@@ -11,14 +11,14 @@ const CurrentTask = (props) => {
       }}>
       <div
         className=''
-        style={{ margin: "4px auto", fontSize: "16px", opacity: "0.6" }}>
+        style={{ margin: "4px auto", fontSize: "18px", opacity: "0.6" }}>
         #4
       </div>
       <div
         className=''
         style={{
           margin: "auto",
-          fontSize: "18px",
+          fontSize: "20px",
           color: "white",
           overflowWrap: "break-word",
           fontWeight: "bold",

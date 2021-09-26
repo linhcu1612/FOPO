@@ -110,9 +110,8 @@ export default function Pomodoro(props) {
     <Card
       sx={{ maxWidth: 345 }}
       style={{
-        margin: "60px auto",
+        margin: "60px 70px",
         paddingBottom: "20px",
-        width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.1)",
         maxWidth: "1000px",
         borderRadius: "10px",
@@ -148,7 +147,7 @@ export default function Pomodoro(props) {
             position: "relative",
           }}
           variant='contained'
-          color='primary'
+          color={pomoData[currentPomoIndex].color}
           title={!pomoRun ? "START" : "STOP"}
           onClick={actionButtonHandler}
         />
@@ -157,7 +156,7 @@ export default function Pomodoro(props) {
             style={{
               cursor: "pointer",
               position: "absolute",
-              left: "62%",
+              left: "58%",
               width: "55px",
               height: "55px",
               color: "white",

@@ -1,5 +1,6 @@
 /** @format */
 
+import { useState } from "react";
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
@@ -10,7 +11,7 @@ const data = [
     id: 1,
     title: "Pomodoro",
     minute: 25,
-    color: "rgb(219, 82, 77)",
+    color: "rgb(215, 75, 71)",
     isRunning: true,
   },
   {
@@ -24,16 +25,32 @@ const data = [
     id: 3,
     title: "Long Break",
     minute: 15,
-    color: "rgb(67, 126, 168)",
+    color: "rgb(0, 118, 176)",
     isRunning: false,
   },
 ];
 
 function App() {
+  const [color, setColor] = useState(data[0].color);
+
+  const changePomoHandler = (index) => {
+    setColor(data[index].color);
+  };
+
   return (
-    <Container>
+    <Container
+      maxWidth='md'
+      style={{
+        backgroundColor: `${color}`,
+        padding: "25px",
+        borderRadius: "20px",
+        marginTop: "50px",
+        marginBottom: "50px",
+        opacity: "0.9",
+        transition: "background-color 0.5s ease-in-out 0s",
+      }}>
       <Header />
-      <Main pomoList={data} />
+      <Main pomoList={data} onPomoChange={changePomoHandler} />
     </Container>
   );
 }

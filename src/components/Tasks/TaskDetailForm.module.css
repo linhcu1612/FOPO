@@ -104,6 +104,7 @@
   font-weight: bold !important;
   letter-spacing: 0.02em !important;
   display: inline-block;
+  text-transform: capitalize !important;
 }
 
 .action {
@@ -113,10 +114,9 @@
   border-bottom-right-radius: 8px;
   background-color: rgb(239, 239, 239);
   display: flex;
-  -webkit-box-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
   align-items: center;
+  text-transform: capitalize !important;
 }
 
 .action_delete_cancel {
@@ -136,6 +136,7 @@
   color: rgb(136, 136, 136) !important;
   font-weight: bold !important;
   box-shadow: none;
+  text-transform: capitalize !important;
 }
 
 .action_save {
@@ -151,8 +152,27 @@
   padding: 8px 12px !important;
   min-width: 70px !important;
   background-color: rgb(34, 34, 34) !important;
-  border: 2px solid rgb(34, 34, 34) !important;
+  border: none !important;
   display: inline-block;
+  text-transform: capitalize !important;
+}
+
+.action_save_disabled {
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px !important;
+  color: white !important;
+  opacity: 0.9;
+  font-size: 14px !important;
+  padding: 8px 12px !important;
+  min-width: 70px !important;
+  background-color: rgba(34, 34, 34, 0.5) !important;
+  border: none !important;
+  display: inline-block;
+  text-transform: capitalize !important;
 }
 
 .action_save:hover {
