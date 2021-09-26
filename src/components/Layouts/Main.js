@@ -1,10 +1,20 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import Pomodoro from "../Pomodoros/Pomodoro";
 import Tasks from "../Tasks/Tasks";
 
-export default function Main() {
+import classes from "./Main.module.css";
+
+export default function Main(props) {
+  const [lengthProgress, setlengthProgress] = useState(0);
+
+  console.log(lengthProgress);
+
+  const currTimerHanlder = (time, index) => {
+    setlengthProgress((1 - time / (props.pomoList[index].minute * 60)) * 100);
+  };
+
   return (
     <>
       <div
@@ -14,9 +24,11 @@ export default function Main() {
           height: "1px",
           marginBottom: "40px",
         }}>
-        <div className=''></div>
+        <div
+          className={classes.progress_line}
+          style={{ width: `${lengthProgress}%` }}></div>
       </div>
-      <Pomodoro />
+      <Pomodoro data={props.pomoList} onTimerChange={currTimerHanlder} />
       <Tasks />
     </>
   );

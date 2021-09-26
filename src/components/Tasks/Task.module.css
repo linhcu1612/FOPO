@@ -12,10 +12,15 @@
   transition: unset;
   box-shadow: none;
   transform: translateY(2px);
+  border-left: 6px solid transparent;
+}
+
+.task:hover {
+  border-left: 6px solid rgba(34, 34, 34, 0.2);
 }
 
 .task_current {
-  border-left: 6px solid rgb(34, 34, 34);
+  border-left: 6px solid rgb(34, 34, 34) !important;
 }
 
 .task_left {

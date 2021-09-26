@@ -4,6 +4,6 @@
 }
 
 .active {
-  background: none rgba(0, 0, 0, 0.15);
-  font-weight: bold;
+  background: none rgba(0, 0, 0, 0.15) !important;
+  font-weight: bold !important;
 }

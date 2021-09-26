@@ -19,33 +19,9 @@ import classes from "./Pomodoro.module.css";
 // store all time as second then convert it to minute
 // line under topbar can update the size
 
-const data = [
-  {
-    id: 1,
-    title: "Pomodoro",
-    minute: 25,
-    color: "red",
-    isRunning: true,
-  },
-  {
-    id: 2,
-    title: "Short Break",
-    minute: 5,
-    color: "green",
-    isRunning: false,
-  },
-  {
-    id: 3,
-    title: "Long Break",
-    minute: 15,
-    color: "blue",
-    isRunning: false,
-  },
-];
-
-export default function Pomodoro() {
+export default function Pomodoro(props) {
   //useReducer ?
-  const [pomoData, setPomoData] = useState(data);
+  const [pomoData, setPomoData] = useState(props.data);
   const [currentPomoIndex, setCurrentPomoIndex] = useState(0);
   const [pomoMinute, setPomoMinute] = useState(pomoData[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
@@ -90,10 +66,22 @@ export default function Pomodoro() {
       }
     }, 1000);
 
+    const totalTime = pomoMinute * 60 + pomoSecond;
+
+    props.onTimerChange(totalTime, currentPomoIndex);
+
     return () => {
       clearTimeout(timer);
     };
-  }, [pomoRun, pomoSecond, pomoMinute, pomoTopBarHandler, changePomoHandler]);
+  }, [
+    pomoRun,
+    pomoSecond,
+    pomoMinute,
+    currentPomoIndex,
+    pomoTopBarHandler,
+    changePomoHandler,
+    props,
+  ]);
 
   const actionButtonHandler = () => {
     setPomoRun((preState) => !preState);
@@ -127,6 +115,7 @@ export default function Pomodoro() {
         width: "100%",
         backgroundColor: "rgba(255, 255, 255, 0.1)",
         maxWidth: "1000px",
+        borderRadius: "10px",
       }}>
       <Stack
         direction='row'
