@@ -1,19 +1,38 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import classes from "./AddTask.module.css";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import TaskDetailForm from "./TaskDetailForm";
 
 const AddTask = () => {
+  const [addNewTask, setAddNewTask] = useState(false);
+
+  const toggleTaskHandler = () => {
+    setAddNewTask((preState) => !preState);
+  };
+
+  // const onCancelHandler = () => {
+
+  // }
+
   return (
-    <Button
-      className={classes.button}
-      startIcon={
-        <AddCircleIcon style={{ fontSize: "24px", opacity: "0.8" }} />
-      }>
-      <div className={classes.button_text}>Add Task</div>
-    </Button>
+    <>
+      {addNewTask && (
+        <TaskDetailForm addNew={true} onCancel={toggleTaskHandler} />
+      )}
+      {!addNewTask && (
+        <Button
+          className={classes.button}
+          onClick={toggleTaskHandler}
+          startIcon={
+            <AddCircleIcon style={{ fontSize: "24px", opacity: "0.8" }} />
+          }>
+          <div className={classes.button_text}>Add Task</div>
+        </Button>
+      )}
+    </>
   );
 };
 

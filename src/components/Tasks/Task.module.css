@@ -43,6 +43,7 @@
   min-width: 0;
   width: 35px;
   height: 35px;
+  z-index: 1000;
 }
 
 .task_left_done_icon {

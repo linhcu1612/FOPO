@@ -28,11 +28,23 @@ const DUMMY_TASK_LIST = [
 ];
 
 const Task = () => {
+  const changeCurTaskHandler = (id) => {
+    console.log(id);
+  };
+
+  const doneTaskHandler = (id) => {
+    console.log(id);
+  };
+
   return (
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
-      <TasksList lists={DUMMY_TASK_LIST} />
+      <TasksList
+        lists={DUMMY_TASK_LIST}
+        changeCurTask={changeCurTaskHandler}
+        doneTask={doneTaskHandler}
+      />
       <AddTask />
       <EstTask />
     </div>

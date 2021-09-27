@@ -7,8 +7,29 @@ import Button from "@mui/material/Button";
 
 import classes from "./TaskDetailForm.module.css";
 
-const TaskDetailForm = () => {
-  const [estPomo, setEstPomo] = useState(1);
+const TaskDetailForm = (props) => {
+  let task = {};
+  if (props.addNew) {
+    task = {
+      id: "m" + Math.floor(Math.random() * 100000),
+      title: "",
+      estimatedPomo: 1,
+      pomoDone: 0,
+      note: "",
+      isDoing: false,
+    };
+  } else {
+    task = { ...props };
+  }
+
+  console.log(task);
+
+  const cancelHandler = () => {
+    props.onCancel();
+  };
+
+  const [estPomo, setEstPomo] = useState(task.estimatedPomo);
+  const [title, setTitle] = useState(task.title);
 
   const estPomoChangeHanlder = (event) => {
     setEstPomo(event.target.value);
@@ -25,6 +46,12 @@ const TaskDetailForm = () => {
     setEstPomo((preState) => preState - 1);
   };
 
+  const titleChangeHandler = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const saveNewTaskHandler = () => {};
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.detail}>
@@ -35,6 +62,8 @@ const TaskDetailForm = () => {
                 <input
                   type='text'
                   className={classes.block_flex_input}
+                  value={title}
+                  onChange={titleChangeHandler}
                   placeholder='What are you working on?'
                 />
               </div>
@@ -74,15 +103,27 @@ const TaskDetailForm = () => {
         </div>
       </div>
       <div className={classes.action}>
-        <Button className={classes.action_delete_cancel}>Delete</Button>
+        {!props.addNew ? (
+          <Button className={classes.action_delete_cancel}>Delete</Button>
+        ) : (
+          <div></div>
+        )}
         <div className=''>
-          <Button className={classes.action_delete_cancel}>Cancel</Button>
+          <Button
+            className={classes.action_delete_cancel}
+            onClick={cancelHandler}>
+            Cancel
+          </Button>
           {estPomo === 0 ? (
             <Button className={classes.action_save_disabled} disabled>
               Save
             </Button>
           ) : (
-            <Button className={classes.action_save}>Save</Button>
+            <Button
+              className={classes.action_save}
+              onClick={saveNewTaskHandler}>
+              Save
+            </Button>
           )}
         </div>
       </div>
