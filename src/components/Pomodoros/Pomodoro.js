@@ -1,6 +1,9 @@
 /** @format */
 
 import React, { useState, useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+// import { pomoActions } from "../store/counter";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
@@ -20,8 +23,11 @@ import classes from "./Pomodoro.module.css";
 // line under topbar can update the size
 
 export default function Pomodoro(props) {
+  const dispatch = useDispatch();
+  const pomo = useSelector((state) => state.pomo);
+
   //useReducer ?
-  const [pomoData, setPomoData] = useState(props.data);
+  const [pomoData, setPomoData] = useState(pomo);
   const [currentPomoIndex, setCurrentPomoIndex] = useState(0);
   const [pomoMinute, setPomoMinute] = useState(pomoData[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);

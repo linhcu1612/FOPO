@@ -27,7 +27,7 @@ export default function Main(props) {
           className={classes.progress_line}
           style={{ width: `${lengthProgress}%` }}></div>
       </div>
-      <Pomodoro data={props.pomoList} onTimerChange={currTimerHanlder} />
+      <Pomodoro onTimerChange={currTimerHanlder} />
       <Tasks data={props.taskList} />
     </>
   );
