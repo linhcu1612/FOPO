@@ -8,24 +8,7 @@ import TasksList from "./TasksList";
 import AddTask from "./AddTask";
 import EstTask from "./EstTask";
 
-const DUMMY_TASK_LIST = [
-  {
-    id: "m1",
-    title: "This is a test task",
-    estimatedPomo: 1,
-    pomoDone: 0,
-    note: "Testing Purpose",
-    isDoing: true,
-  },
-  {
-    id: "m2",
-    title: "This is second test task",
-    estimatedPomo: 1,
-    pomoDone: 0,
-    note: "Testing 2nd Purpose",
-    isDoing: false,
-  },
-];
+const DUMMY_TASK_LIST = [];
 
 const Task = () => {
   const [data, setData] = useState(DUMMY_TASK_LIST);
@@ -44,6 +27,16 @@ const Task = () => {
     });
   };
 
+  const estCal = () => {
+    let count = 0;
+    data.map((data) => {
+      count += data.estimatedPomo;
+    });
+    return count;
+  };
+
+  console.log(estCal());
+
   return (
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
@@ -54,7 +47,7 @@ const Task = () => {
         doneTask={doneTaskHandler}
       />
       <AddTask addNewTask={addNewTaskHandler} />
-      <EstTask />
+      {data.length > 0 && <EstTask est={+estCal()} act={data.length} />}
     </div>
   );
 };

@@ -3,20 +3,29 @@
 import React from "react";
 import classes from "./EstTask.module.css";
 
-const EstTask = () => {
+const EstTask = (props) => {
+  const finishAtCal = () => {
+    var today = new Date();
+    today.setHours(
+      today.getHours(),
+      today.getMinutes() + props.est * 25 + (props.est - 1) * 5
+    );
+    return `${today.getHours()}:${today.getMinutes()}`;
+  };
+
   return (
     <div
       style={{ display: "flex", justifyContent: "center" }}
       className={classes.wrapper}>
       <div className={classes.est_block}>
         Est:
-        <span className={classes.est_time}>4</span>
+        <span className={classes.est_time}>{props.est}</span>
       </div>
       <div className={classes.est_block}>
-        Act: <span className={classes.est_time}>2</span>
+        Act: <span className={classes.est_time}>{props.act}</span>
       </div>
       <div className={classes.est_block}>
-        Finish at <span className={classes.est_time}>12:36</span>
+        Finish at <span className={classes.est_time}>{finishAtCal()}</span>
       </div>
     </div>
   );

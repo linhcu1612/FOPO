@@ -53,6 +53,7 @@ const TaskDetailForm = (props) => {
       task.id = "m" + Math.floor(Math.random() * 100000);
       task.title = title;
       task.estimatedPomo = estPomo;
+      console.log(task);
       props.onSubmit(task);
       props.onCancel();
     }
