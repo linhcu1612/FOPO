@@ -141,11 +141,9 @@ export default function Pomodoro(props) {
           display: "flex",
           textAlign: "center",
           justifyContent: "center",
+          position: "relative",
         }}>
         <PomodoroActionButton
-          style={{
-            position: "relative",
-          }}
           variant='contained'
           color={pomoData[currentPomoIndex].color}
           title={!pomoRun ? "START" : "STOP"}
@@ -156,7 +154,7 @@ export default function Pomodoro(props) {
             style={{
               cursor: "pointer",
               position: "absolute",
-              left: "58%",
+              right: "150px",
               width: "55px",
               height: "55px",
               color: "white",
