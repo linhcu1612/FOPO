@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 
 import CurrentTask from "./CurrentTask";
 import TasksConfig from "./TasksConfig";
@@ -28,6 +28,8 @@ const DUMMY_TASK_LIST = [
 ];
 
 const Task = () => {
+  const [data, setData] = useState(DUMMY_TASK_LIST);
+
   const changeCurTaskHandler = (id) => {
     console.log(id);
   };
@@ -36,16 +38,22 @@ const Task = () => {
     console.log(id);
   };
 
+  const addNewTaskHandler = (task) => {
+    setData((preState) => {
+      return [...preState, task];
+    });
+  };
+
   return (
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
       <TasksList
-        lists={DUMMY_TASK_LIST}
+        lists={data}
         changeCurTask={changeCurTaskHandler}
         doneTask={doneTaskHandler}
       />
-      <AddTask />
+      <AddTask addNewTask={addNewTaskHandler} />
       <EstTask />
     </div>
   );

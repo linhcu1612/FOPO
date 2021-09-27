@@ -11,7 +11,7 @@ const TaskDetailForm = (props) => {
   let task = {};
   if (props.addNew) {
     task = {
-      id: "m" + Math.floor(Math.random() * 100000),
+      id: "",
       title: "",
       estimatedPomo: 1,
       pomoDone: 0,
@@ -21,8 +21,6 @@ const TaskDetailForm = (props) => {
   } else {
     task = { ...props };
   }
-
-  console.log(task);
 
   const cancelHandler = () => {
     props.onCancel();
@@ -50,7 +48,15 @@ const TaskDetailForm = (props) => {
     setTitle(event.target.value);
   };
 
-  const saveNewTaskHandler = () => {};
+  const saveNewTaskHandler = () => {
+    if (props.addNew) {
+      task.id = "m" + Math.floor(Math.random() * 100000);
+      task.title = title;
+      task.estimatedPomo = estPomo;
+      props.onSubmit(task);
+      props.onCancel();
+    }
+  };
 
   return (
     <div className={classes.wrapper}>

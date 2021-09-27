@@ -6,21 +6,25 @@ import classes from "./AddTask.module.css";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import TaskDetailForm from "./TaskDetailForm";
 
-const AddTask = () => {
+const AddTask = (props) => {
   const [addNewTask, setAddNewTask] = useState(false);
 
   const toggleTaskHandler = () => {
     setAddNewTask((preState) => !preState);
   };
 
-  // const onCancelHandler = () => {
-
-  // }
+  const onSubmitHandler = (task) => {
+    props.addNewTask(task);
+  };
 
   return (
     <>
       {addNewTask && (
-        <TaskDetailForm addNew={true} onCancel={toggleTaskHandler} />
+        <TaskDetailForm
+          addNew={true}
+          onCancel={toggleTaskHandler}
+          onSubmit={onSubmitHandler}
+        />
       )}
       {!addNewTask && (
         <Button
