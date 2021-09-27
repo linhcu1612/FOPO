@@ -111,6 +111,7 @@ export default function Pomodoro(props) {
       sx={{ maxWidth: 345 }}
       style={{
         margin: "60px 70px",
+        marginBottom: "20px",
         paddingBottom: "20px",
         backgroundColor: "rgba(255, 255, 255, 0.1)",
         maxWidth: "1000px",

@@ -6,7 +6,7 @@ import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
 import "./App.css";
 
-const data = [
+const pomoList = [
   {
     id: 1,
     title: "Pomodoro",
@@ -30,11 +30,13 @@ const data = [
   },
 ];
 
+const taskList = [];
+
 function App() {
-  const [color, setColor] = useState(data[0].color);
+  const [color, setColor] = useState(pomoList[0].color);
 
   const changePomoHandler = (index) => {
-    setColor(data[index].color);
+    setColor(pomoList[index].color);
   };
 
   return (
@@ -50,7 +52,11 @@ function App() {
         transition: "background-color 0.5s ease-in-out 0s",
       }}>
       <Header />
-      <Main pomoList={data} onPomoChange={changePomoHandler} />
+      <Main
+        pomoList={pomoList}
+        taskList={taskList}
+        onPomoChange={changePomoHandler}
+      />
     </Container>
   );
 }

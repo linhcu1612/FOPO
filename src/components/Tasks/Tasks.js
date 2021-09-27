@@ -8,10 +8,8 @@ import TasksList from "./TasksList";
 import AddTask from "./AddTask";
 import EstTask from "./EstTask";
 
-const DUMMY_TASK_LIST = [];
-
-const Task = () => {
-  const [data, setData] = useState(DUMMY_TASK_LIST);
+const Task = (props) => {
+  const [data, setData] = useState(props.data);
 
   const changeCurTaskHandler = (id) => {
     console.log(id);
@@ -34,8 +32,6 @@ const Task = () => {
     });
     return count;
   };
-
-  console.log(estCal());
 
   return (
     <div style={{ margin: "auto 70px" }}>
