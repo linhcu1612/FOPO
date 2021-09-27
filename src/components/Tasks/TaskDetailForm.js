@@ -17,6 +17,7 @@ const TaskDetailForm = (props) => {
       pomoDone: 0,
       note: "",
       isDoing: false,
+      isDone: false,
     };
   } else {
     task = { ...props };

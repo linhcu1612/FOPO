@@ -1,8 +1,0 @@
-{
-    "app_id": "pomofocus-cvbvx",
-    "config_version": 20210101,
-    "name": "Pomofocus",
-    "location": "AU",
-    "deployment_model": "GLOBAL",
-    "environment": "development"
-}

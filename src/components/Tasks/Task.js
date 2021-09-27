@@ -12,6 +12,7 @@ const Task = (props) => {
   //todo:
   // - find a way to handle when user only click on done button
   const [taskDetailShow, setTaskDetailShow] = useState(false);
+  const [taskDone, setTaskDone] = useState(props.isDone);
 
   const isDoingClass = props.isDoing ? classes.task_current : "";
   const taskClasses = classes.task + " " + isDoingClass;
@@ -25,12 +26,13 @@ const Task = (props) => {
   };
 
   const toggleDoneHandler = () => {
+    setTaskDone((preState) => !preState);
     props.onDone(props.id);
   };
 
-  const changeCurTaskHandler = () => {
-    props.onChange(props.id);
-  };
+  // const changeCurTaskHandler = () => {
+  //   props.onChange(props.id);
+  // };
 
   return (
     <>
@@ -51,9 +53,20 @@ const Task = (props) => {
             <Button
               className={classes.task_left_done_button}
               onClick={toggleDoneHandler}>
-              <CheckCircleIcon className={classes.task_left_done_icon} />
+              <CheckCircleIcon
+                className={
+                  taskDone
+                    ? classes.task_left_done_icon_done
+                    : classes.task_left_done_icon
+                }
+              />
             </Button>
-            <div className={classes.task_title}>{props.title}</div>
+            <div
+              className={
+                taskDone ? classes.task_title_done : classes.task_title
+              }>
+              {props.title}
+            </div>
           </div>
           {/* rightside */}
           <div className='' style={{ display: "flex", alignItems: "center" }}>

@@ -52,6 +52,12 @@
   color: rgb(223, 223, 223);
 }
 
+.task_left_done_icon_done {
+  width: 30px;
+  height: 30px;
+  color: rgb(215, 75, 71);
+}
+
 .task_right_pomo_cur {
   display: inline-block;
   color: rgb(187, 187, 187);
@@ -83,7 +89,22 @@
   width: 85%;
   font-size: 18px;
   overflow: hidden;
+  align-items: center;
+  line-height: 1.5em;
+}
+
+.task_title_done {
+  font-weight: bold;
+  width: 85%;
+  overflow-x: hidden;
+  overflow-y: hidden;
   -webkit-box-align: center;
   align-items: center;
   line-height: 1.5em;
+  font-size: 18px;
+  text-decoration-line: line-through;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+  text-decoration: line-through;
+  color: rgb(187, 187, 187);
 }

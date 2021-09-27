@@ -16,7 +16,11 @@ const Task = (props) => {
   };
 
   const doneTaskHandler = (id) => {
-    console.log(id);
+    const taskIndex = data.findIndex((task) => task.id === id);
+    setData((preState) => {
+      preState[taskIndex].isDone = !preState[taskIndex].isDone;
+      return preState;
+    });
   };
 
   const addNewTaskHandler = (task) => {
@@ -27,9 +31,7 @@ const Task = (props) => {
 
   const estCal = () => {
     let count = 0;
-    data.map((data) => {
-      count += data.estimatedPomo;
-    });
+    data.map((data) => (count += data.estimatedPomo));
     return count;
   };
 
