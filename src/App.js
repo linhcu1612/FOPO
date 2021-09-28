@@ -1,49 +1,23 @@
 /** @format */
 
-import { useState } from "react";
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
 import "./App.css";
 
-const pomoList = [
-  {
-    id: 1,
-    title: "Pomodoro",
-    minute: 25,
-    color: "rgb(215, 75, 71)",
-    isRunning: true,
-  },
-  {
-    id: 2,
-    title: "Short Break",
-    minute: 5,
-    color: "rgb(70, 142, 145)",
-    isRunning: false,
-  },
-  {
-    id: 3,
-    title: "Long Break",
-    minute: 15,
-    color: "rgb(0, 118, 176)",
-    isRunning: false,
-  },
-];
+import { useSelector } from "react-redux";
 
 const taskList = [];
 
 function App() {
-  const [color, setColor] = useState(pomoList[0].color);
-
-  const changePomoHandler = (index) => {
-    setColor(pomoList[index].color);
-  };
+  const pomo = useSelector((state) => state.pomo.pomoList);
+  const currPomo = useSelector((state) => state.pomo.currPomo);
 
   return (
     <Container
       maxWidth='md'
       style={{
-        backgroundColor: `${color}`,
+        backgroundColor: `${pomo[currPomo].color}`,
         padding: "25px",
         borderRadius: "20px",
         marginTop: "50px",
@@ -52,11 +26,7 @@ function App() {
         transition: "background-color 0.5s ease-in-out 0s",
       }}>
       <Header />
-      <Main
-        pomoList={pomoList}
-        taskList={taskList}
-        onPomoChange={changePomoHandler}
-      />
+      <Main taskList={taskList} />
     </Container>
   );
 }

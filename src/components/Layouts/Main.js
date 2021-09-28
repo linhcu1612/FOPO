@@ -4,14 +4,18 @@ import React, { useState } from "react";
 import Pomodoro from "../Pomodoros/Pomodoro";
 import Tasks from "../Tasks/Tasks";
 
+import { useSelector } from "react-redux";
+
 import classes from "./Main.module.css";
 
 export default function Main(props) {
   const [lengthProgress, setlengthProgress] = useState(0);
 
-  const currTimerHanlder = (time, index) => {
-    props.onPomoChange(index);
-    setlengthProgress((1 - time / (props.pomoList[index].minute * 60)) * 100);
+  const pomo = useSelector((state) => state.pomo.pomoList);
+  const currPomo = useSelector((state) => state.pomo.currPomo);
+
+  const currTimerHanlder = (time) => {
+    setlengthProgress((1 - time / (pomo[currPomo].minute * 60)) * 100);
   };
 
   return (

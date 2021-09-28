@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { pomoActions } from "../store/counter";
+import { pomoActions } from "../../store/pomo";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -15,47 +15,33 @@ import Typography from "@mui/material/Typography";
 
 import classes from "./Pomodoro.module.css";
 
-// need to do:
-// not using Card any more MUI v5 ? x
-// own styling x
-// CardHeader => Stack MUI x
-// store all time as second then convert it to minute
-// line under topbar can update the size
-
 export default function Pomodoro(props) {
   const dispatch = useDispatch();
-  const pomo = useSelector((state) => state.pomo);
+  const pomo = useSelector((state) => state.pomo.pomoList);
+  const currPomo = useSelector((state) => state.pomo.currPomo);
 
   //useReducer ?
-  const [pomoData, setPomoData] = useState(pomo);
-  const [currentPomoIndex, setCurrentPomoIndex] = useState(0);
-  const [pomoMinute, setPomoMinute] = useState(pomoData[0].minute);
+  const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);
 
   const pomoTopBarHandler = useCallback(
     (id) => {
-      const pomoChangedData = pomoData;
       setPomoRun(false);
-      setCurrentPomoIndex((prev) => {
-        pomoChangedData[prev].isRunning = false;
-        pomoChangedData[id - 1].isRunning = true;
-        return id - 1;
-      });
-      setPomoData(pomoChangedData);
+      dispatch(pomoActions.changePomo(id));
       setPomoSecond(0);
-      setPomoMinute(pomoData[id - 1].minute);
+      setPomoMinute(pomo[id].minute);
     },
-    [pomoData]
+    [pomo, dispatch]
   );
 
   const changePomoHandler = useCallback(() => {
-    if (currentPomoIndex >= 1) {
-      pomoTopBarHandler(1);
+    if (currPomo >= 1) {
+      pomoTopBarHandler(0);
     } else {
-      pomoTopBarHandler(currentPomoIndex + 2);
+      pomoTopBarHandler(+currPomo + 1);
     }
-  }, [currentPomoIndex, pomoTopBarHandler]);
+  }, [currPomo, pomoTopBarHandler]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -74,7 +60,7 @@ export default function Pomodoro(props) {
 
     const totalTime = pomoMinute * 60 + pomoSecond;
 
-    props.onTimerChange(totalTime, currentPomoIndex);
+    props.onTimerChange(totalTime, currPomo);
 
     return () => {
       clearTimeout(timer);
@@ -83,7 +69,7 @@ export default function Pomodoro(props) {
     pomoRun,
     pomoSecond,
     pomoMinute,
-    currentPomoIndex,
+    currPomo,
     pomoTopBarHandler,
     changePomoHandler,
     props,
@@ -101,7 +87,8 @@ export default function Pomodoro(props) {
     return `${minuteDisplay}:${secondDisplay}`;
   };
 
-  const pomoTopBarRender = pomoData.map(({ id, title, isRunning }) => {
+  const pomoTopBarRender = pomo.map(({ id, title }) => {
+    const isRunning = +id === +currPomo;
     return (
       <PomodoroTopBarButton
         key={id}
@@ -112,62 +99,33 @@ export default function Pomodoro(props) {
       />
     );
   });
+
   return (
-    <Card
-      sx={{ maxWidth: 345 }}
-      style={{
-        margin: "60px 70px",
-        marginBottom: "20px",
-        paddingBottom: "20px",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        maxWidth: "1000px",
-        borderRadius: "10px",
-      }}>
+    <Card sx={{ maxWidth: 345 }} className={classes.card}>
       <Stack
         direction='row'
         spacing={2}
         mt={2}
         mb={5}
-        style={{ display: "flex", justifyContent: "center" }}>
+        className={classes.stack}>
         {pomoTopBarRender}
       </Stack>
       <Typography
-        style={{
-          textAlign: "center",
-          color: "white",
-          fontFamily: "Nunito",
-        }}
         className={classes.timer}
         variant='h1'
         component='div'
         gutterBottom>
         {timerScreenDisplay()}
       </Typography>
-      <CardActions
-        style={{
-          display: "flex",
-          textAlign: "center",
-          justifyContent: "center",
-          position: "relative",
-        }}>
+      <CardActions className={classes.card_action}>
         <PomodoroActionButton
           variant='contained'
-          color={pomoData[currentPomoIndex].color}
+          color={pomo[currPomo].color}
           title={!pomoRun ? "START" : "STOP"}
           onClick={actionButtonHandler}
         />
         {pomoRun ? (
-          <SkipNextIcon
-            style={{
-              cursor: "pointer",
-              position: "absolute",
-              right: "150px",
-              width: "55px",
-              height: "55px",
-              color: "white",
-            }}
-            onClick={changePomoHandler}
-          />
+          <SkipNextIcon className={classes.icon} onClick={changePomoHandler} />
         ) : (
           ""
         )}
