@@ -8,7 +8,10 @@ const EstTask = (props) => {
     var today = new Date();
     today.setHours(
       today.getHours(),
-      today.getMinutes() + props.est * 25 + (props.est - 1) * 5
+      today.getMinutes() +
+        props.est * 25 +
+        (props.est / 3) * 5 +
+        (props.est / 4) * 15
     );
     return `${today.getHours()}:${today.getMinutes()}`;
   };

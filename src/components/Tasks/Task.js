@@ -6,20 +6,19 @@ import Button from "@mui/material/Button";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import TaskDetailForm from "./TaskDetailForm";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { taskActions } from "../../store/task";
 
 import classes from "./Task.module.css";
 
 const Task = (props) => {
   const dispatch = useDispatch();
-
+  const currTask = useSelector((state) => state.task.currTask);
   //todo:
   // - find a way to handle when user only click on done button
   const [taskDetailShow, setTaskDetailShow] = useState(false);
-  const [taskDone, setTaskDone] = useState(props.isDone);
 
-  const isDoingClass = props.isDoing ? classes.task_current : "";
+  const isDoingClass = props.id == currTask ? classes.task_current : "";
   const taskClasses = classes.task + " " + isDoingClass;
 
   const toggleTaskDetailHandler = () => {
@@ -39,18 +38,17 @@ const Task = (props) => {
   };
 
   const toggleDoneHandler = () => {
-    setTaskDone((preState) => !preState);
-    props.onDone(props.id);
+    dispatch(taskActions.doneTask(props.id));
   };
 
-  // const changeCurTaskHandler = () => {
-  //   props.onChange(props.id);
-  // };
+  const changeCurTaskHandler = () => {
+    dispatch(taskActions.changeTask(props.id));
+  };
 
   return (
     <>
       {!taskDetailShow ? (
-        <div className={taskClasses}>
+        <div className={taskClasses} onClick={changeCurTaskHandler}>
           {/* leftside */}
           <div className={classes.task_left}>
             <Button
@@ -58,7 +56,7 @@ const Task = (props) => {
               onClick={toggleDoneHandler}>
               <CheckCircleIcon
                 className={
-                  taskDone
+                  props.isDone
                     ? classes.task_left_done_icon_done
                     : classes.task_left_done_icon
                 }
@@ -66,7 +64,7 @@ const Task = (props) => {
             </Button>
             <div
               className={
-                taskDone ? classes.task_title_done : classes.task_title
+                props.isDone ? classes.task_title_done : classes.task_title
               }>
               {props.title}
             </div>

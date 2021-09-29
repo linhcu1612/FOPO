@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialTaskState = {
   taskList: [],
+  currTask: 0,
 };
 
 const taskSlice = createSlice({
@@ -23,6 +24,15 @@ const taskSlice = createSlice({
       state.taskList = state.taskList.filter(({ id }) => {
         return id !== action.payload;
       });
+    },
+    doneTask(state, action) {
+      const index = state.taskList.findIndex(
+        (task) => task.id === action.payload
+      );
+      state.taskList[index].isDone = !state.taskList[index].isDone;
+    },
+    changeTask(state, action) {
+      state.currTask = action.payload;
     },
   },
 });
