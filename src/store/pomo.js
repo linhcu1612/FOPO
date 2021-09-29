@@ -24,7 +24,7 @@ const initialPomoState = {
     },
   ],
   pomoDone: 0,
-  currPomo: 0,
+  currPomoIndex: 0,
 };
 
 const pomoSlice = createSlice({
@@ -32,7 +32,7 @@ const pomoSlice = createSlice({
   initialState: initialPomoState,
   reducers: {
     changePomo(state, action) {
-      state.currPomo = action.payload;
+      state.currPomoIndex = action.payload;
     },
   },
 });

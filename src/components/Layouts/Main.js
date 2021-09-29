@@ -12,10 +12,10 @@ export default function Main() {
   const [lengthProgress, setlengthProgress] = useState(0);
 
   const pomo = useSelector((state) => state.pomo.pomoList);
-  const currPomo = useSelector((state) => state.pomo.currPomo);
+  const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
   const currTimerHanlder = (time) => {
-    setlengthProgress((1 - time / (pomo[currPomo].minute * 60)) * 100);
+    setlengthProgress((1 - time / (pomo[currPomoIndex].minute * 60)) * 100);
   };
 
   return (

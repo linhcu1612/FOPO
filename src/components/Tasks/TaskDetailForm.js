@@ -5,9 +5,15 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Button from "@mui/material/Button";
 
+import { useSelector, useDispatch } from "react-redux";
+import { taskActions } from "../../store/task";
+
 import classes from "./TaskDetailForm.module.css";
 
 const TaskDetailForm = (props) => {
+  const taskList = useSelector((state) => state.task.taskList);
+  const dispatch = useDispatch();
+
   let task = {};
   if (props.addNew) {
     task = {
@@ -65,6 +71,9 @@ const TaskDetailForm = (props) => {
     task.note = note;
     if (props.addNew) {
       task.id = "m" + Math.floor(Math.random() * 100000);
+      if (taskList.length === 0) {
+        dispatch(taskActions.changeTask(task.id));
+      }
       props.onSubmit(task);
       props.onCancel();
     } else {

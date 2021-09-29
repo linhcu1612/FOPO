@@ -9,13 +9,13 @@ import { useSelector } from "react-redux";
 
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
-  const currPomo = useSelector((state) => state.pomo.currPomo);
+  const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
   return (
     <Container
       maxWidth='md'
       style={{
-        backgroundColor: `${pomo[currPomo].color}`,
+        backgroundColor: `${pomo[currPomoIndex].color}`,
         padding: "25px",
         borderRadius: "20px",
         marginTop: "50px",

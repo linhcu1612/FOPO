@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialTaskState = {
   taskList: [],
-  currTask: 0,
+  currTaskId: 0,
 };
 
 const taskSlice = createSlice({
@@ -32,7 +32,7 @@ const taskSlice = createSlice({
       state.taskList[index].isDone = !state.taskList[index].isDone;
     },
     changeTask(state, action) {
-      state.currTask = action.payload;
+      state.currTaskId = action.payload;
     },
   },
 });

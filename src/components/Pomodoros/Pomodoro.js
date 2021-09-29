@@ -18,7 +18,7 @@ import classes from "./Pomodoro.module.css";
 export default function Pomodoro(props) {
   const dispatch = useDispatch();
   const pomo = useSelector((state) => state.pomo.pomoList);
-  const currPomo = useSelector((state) => state.pomo.currPomo);
+  const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
   //useReducer ?
   const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
@@ -36,12 +36,12 @@ export default function Pomodoro(props) {
   );
 
   const changePomoHandler = useCallback(() => {
-    if (currPomo >= 1) {
+    if (currPomoIndex >= 1) {
       pomoTopBarHandler(0);
     } else {
-      pomoTopBarHandler(+currPomo + 1);
+      pomoTopBarHandler(+currPomoIndex + 1);
     }
-  }, [currPomo, pomoTopBarHandler]);
+  }, [currPomoIndex, pomoTopBarHandler]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -60,7 +60,7 @@ export default function Pomodoro(props) {
 
     const totalTime = pomoMinute * 60 + pomoSecond;
 
-    props.onTimerChange(totalTime, currPomo);
+    props.onTimerChange(totalTime, currPomoIndex);
 
     return () => {
       clearTimeout(timer);
@@ -69,7 +69,7 @@ export default function Pomodoro(props) {
     pomoRun,
     pomoSecond,
     pomoMinute,
-    currPomo,
+    currPomoIndex,
     pomoTopBarHandler,
     changePomoHandler,
     props,
@@ -88,7 +88,7 @@ export default function Pomodoro(props) {
   };
 
   const pomoTopBarRender = pomo.map(({ id, title }) => {
-    const isRunning = +id === +currPomo;
+    const isRunning = +id === +currPomoIndex;
     return (
       <PomodoroTopBarButton
         key={id}
@@ -120,7 +120,7 @@ export default function Pomodoro(props) {
       <CardActions className={classes.card_action}>
         <PomodoroActionButton
           variant='contained'
-          color={pomo[currPomo].color}
+          color={pomo[currPomoIndex].color}
           title={!pomoRun ? "START" : "STOP"}
           onClick={actionButtonHandler}
         />

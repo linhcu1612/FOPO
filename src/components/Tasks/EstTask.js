@@ -13,7 +13,10 @@ const EstTask = (props) => {
         (props.est / 3) * 5 +
         (props.est / 4) * 15
     );
-    return `${today.getHours()}:${today.getMinutes()}`;
+    let hour = today.getHours() > 9 ? today.getHours() : "0" + today.getHours();
+    let minute =
+      today.getMinutes() > 9 ? today.getMinutes() : "0" + today.getMinutes();
+    return `${hour}:${minute}`;
   };
 
   return (

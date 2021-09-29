@@ -13,12 +13,10 @@ import classes from "./Task.module.css";
 
 const Task = (props) => {
   const dispatch = useDispatch();
-  const currTask = useSelector((state) => state.task.currTask);
-  //todo:
-  // - find a way to handle when user only click on done button
+  const currTaskId = useSelector((state) => state.task.currTaskId);
   const [taskDetailShow, setTaskDetailShow] = useState(false);
 
-  const isDoingClass = props.id === currTask ? classes.task_current : "";
+  const isDoingClass = props.id === currTaskId ? classes.task_current : "";
   const taskClasses = classes.task + " " + isDoingClass;
 
   const toggleTaskDetailHandler = () => {
@@ -96,8 +94,8 @@ const Task = (props) => {
         </div>
       ) : (
         <TaskDetailForm
-          addNew={false}
           {...props}
+          addNew={false}
           onEdit={onEdit}
           onCancel={onCancel}
           onDelete={onDelete}
