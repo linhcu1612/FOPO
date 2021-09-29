@@ -19,6 +19,12 @@ const Task = () => {
     dispatch(taskActions.addTask(task));
   };
 
+  const actCal = () => {
+    let countAct = 0;
+    task.map((data) => (countAct += data.pomoDone));
+    return countAct;
+  };
+
   const estCal = () => {
     let count = 0;
     task.map((data) => (count += data.estimatedPomo));
@@ -31,7 +37,7 @@ const Task = () => {
       <TasksConfig />
       <TasksList />
       <AddTask addNewTask={addNewTaskHandler} />
-      {task.length > 0 && <EstTask est={+estCal()} act={task.length} />}
+      {task.length > 0 && <EstTask est={+estCal()} act={+actCal()} />}
     </div>
   );
 };

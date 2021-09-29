@@ -20,7 +20,7 @@ const initialPomoState = {
       id: 2,
       title: "Long Break",
       minute: 15,
-      color: "rgb(0, 118, 176)",
+      color: "rgb(67, 126, 168)",
     },
   ],
   pomoDone: 0,

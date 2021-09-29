@@ -1,0 +1,50 @@
+/** @format */
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  position: relative;
+}
+
+.left_text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.right_button {
+  background-color: rgba(107, 47, 47, 0.1) !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  color: white !important;
+}
+
+.right_action_wrapper {
+  border-radius: 4px;
+  opacity: 1;
+  padding: 4px 0px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 10px 20px, rgb(0 0 0 / 10%) 0px 3px 6px;
+  display: block;
+  pointer-events: auto;
+  position: absolute;
+  background-color: white;
+  width: 250px;
+  right: 0;
+  top: 90%;
+  z-index: 1;
+}
+
+.right_action_detail {
+  color: rgb(79, 43, 45) !important;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px !important;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100% !important;
+  min-width: none;
+  text-transform: capitalize !important;
+  justify-content: flex-start !important;
+}

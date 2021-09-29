@@ -34,6 +34,19 @@ const taskSlice = createSlice({
     changeTask(state, action) {
       state.currTaskId = action.payload;
     },
+    clearAllTask(state) {
+      state.taskList = [];
+    },
+    clearFinishedTask(state) {
+      state.taskList = state.taskList.filter((task) => !task.isDone);
+    },
+    clearActPomodoros(state) {
+      const newTaskList = state.taskList.map((task) => {
+        task.pomoDone = 0;
+        return task;
+      });
+      state.taskList = newTaskList;
+    },
   },
 });
 
