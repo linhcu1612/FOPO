@@ -18,6 +18,7 @@ export default function Header() {
         alignItems: "center",
       }}
       mt={3}
+      mx={4}
       pb={3}>
       <Link
         href='/'

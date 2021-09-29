@@ -6,9 +6,14 @@ import Button from "@mui/material/Button";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import TaskDetailForm from "./TaskDetailForm";
 
+import { useDispatch } from "react-redux";
+import { taskActions } from "../../store/task";
+
 import classes from "./Task.module.css";
 
 const Task = (props) => {
+  const dispatch = useDispatch();
+
   //todo:
   // - find a way to handle when user only click on done button
   const [taskDetailShow, setTaskDetailShow] = useState(false);
@@ -25,6 +30,14 @@ const Task = (props) => {
     setTaskDetailShow(false);
   };
 
+  const onEdit = (task) => {
+    dispatch(taskActions.editTask(task));
+  };
+
+  const onDelete = (id) => {
+    dispatch(taskActions.deleteTask(id));
+  };
+
   const toggleDoneHandler = () => {
     setTaskDone((preState) => !preState);
     props.onDone(props.id);
@@ -37,19 +50,9 @@ const Task = (props) => {
   return (
     <>
       {!taskDetailShow ? (
-        <div
-          className={taskClasses}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            backgroundColor: "white",
-            color: "black",
-          }}>
+        <div className={taskClasses}>
           {/* leftside */}
-          <div
-            className={classes.task_left}
-            style={{ display: "flex", alignItems: "center" }}>
+          <div className={classes.task_left}>
             <Button
               className={classes.task_left_done_button}
               onClick={toggleDoneHandler}>
@@ -69,7 +72,7 @@ const Task = (props) => {
             </div>
           </div>
           {/* rightside */}
-          <div className='' style={{ display: "flex", alignItems: "center" }}>
+          <div className={classes.task_right}>
             <div className=''>
               <span className={classes.task_right_pomo_cur}>
                 {props.pomoDone}
@@ -86,7 +89,13 @@ const Task = (props) => {
           </div>
         </div>
       ) : (
-        <TaskDetailForm addNew={false} {...props} onCancel={onCancel} />
+        <TaskDetailForm
+          addNew={false}
+          {...props}
+          onEdit={onEdit}
+          onCancel={onCancel}
+          onDelete={onDelete}
+        />
       )}
     </>
   );

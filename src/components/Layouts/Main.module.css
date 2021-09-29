@@ -1,5 +1,13 @@
 /** @format */
 
+.line_wrapper {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 2px;
+  margin-bottom: 40px;
+  margin-right: 32px;
+  margin-left: 32px;
+}
+
 .progress_line {
   height: 3px;
   background-color: white;

@@ -3,24 +3,15 @@
 import React from "react";
 import Task from "./Task";
 
-const TasksList = (props) => {
-  const changeCurTaskHandler = (id) => {
-    props.changeCurTask(id);
-  };
+import { useSelector } from "react-redux";
 
-  const taskDoneHandler = (id) => {
-    props.doneTask(id);
-  };
+const TasksList = () => {
+  const task = useSelector((state) => state.task.taskList);
 
   return (
     <div>
-      {props.lists.map((task) => (
-        <Task
-          key={task.id}
-          {...task}
-          onChange={changeCurTaskHandler}
-          onDone={taskDoneHandler}
-        />
+      {task.map((task) => (
+        <Task key={task.id} {...task} />
       ))}
     </div>
   );

@@ -1,13 +1,11 @@
 /** @format */
+import "./App.css";
 
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
-import "./App.css";
 
 import { useSelector } from "react-redux";
-
-const taskList = [];
 
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
@@ -26,7 +24,7 @@ function App() {
         transition: "background-color 0.5s ease-in-out 0s",
       }}>
       <Header />
-      <Main taskList={taskList} />
+      <Main />
     </Container>
   );
 }

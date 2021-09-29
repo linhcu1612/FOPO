@@ -13,6 +13,11 @@
   box-shadow: none;
   transform: translateY(2px);
   border-left: 6px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
 }
 
 .task:hover {
@@ -56,6 +61,11 @@
   width: 30px;
   height: 30px;
   color: rgb(215, 75, 71);
+}
+
+.task_right {
+  display: flex;
+  align-items: center;
 }
 
 .task_right_pomo_cur {

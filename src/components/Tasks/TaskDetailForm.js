@@ -49,15 +49,21 @@ const TaskDetailForm = (props) => {
     setTitle(event.target.value);
   };
 
-  const saveNewTaskHandler = () => {
+  const saveTaskHandler = () => {
+    task.title = title;
+    task.estimatedPomo = estPomo;
     if (props.addNew) {
       task.id = "m" + Math.floor(Math.random() * 100000);
-      task.title = title;
-      task.estimatedPomo = estPomo;
-      console.log(task);
       props.onSubmit(task);
       props.onCancel();
+    } else {
+      props.onEdit(task);
+      props.onCancel();
     }
+  };
+
+  const deleteTaskHandler = () => {
+    props.onDelete(task.id);
   };
 
   return (
@@ -112,7 +118,11 @@ const TaskDetailForm = (props) => {
       </div>
       <div className={classes.action}>
         {!props.addNew ? (
-          <Button className={classes.action_delete_cancel}>Delete</Button>
+          <Button
+            className={classes.action_delete_cancel}
+            onClick={deleteTaskHandler}>
+            Delete
+          </Button>
         ) : (
           <div></div>
         )}
@@ -127,9 +137,7 @@ const TaskDetailForm = (props) => {
               Save
             </Button>
           ) : (
-            <Button
-              className={classes.action_save}
-              onClick={saveNewTaskHandler}>
+            <Button className={classes.action_save} onClick={saveTaskHandler}>
               Save
             </Button>
           )}

@@ -2,14 +2,27 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialTaskState = [];
+const initialTaskState = {
+  taskList: [],
+};
 
 const taskSlice = createSlice({
   name: "taskList",
   initialState: initialTaskState,
   reducers: {
     addTask(state, action) {
-      state = [...state, action.payload];
+      state.taskList = [...state.taskList, action.payload];
+    },
+    editTask(state, action) {
+      const index = state.taskList.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      state.taskList[index] = action.payload;
+    },
+    deleteTask(state, action) {
+      state.taskList = state.taskList.filter(({ id }) => {
+        return id !== action.payload;
+      });
     },
   },
 });

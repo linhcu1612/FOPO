@@ -1,0 +1,20 @@
+/** @format */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.task_count {
+  margin: 4px auto;
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.task_header {
+  margin: auto;
+  font-size: 20px;
+  color: white;
+  overflow-wrap: break-word !important;
+  font-weight: bold !important;
+}
