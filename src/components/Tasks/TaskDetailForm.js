@@ -29,6 +29,8 @@ const TaskDetailForm = (props) => {
 
   const [estPomo, setEstPomo] = useState(task.estimatedPomo);
   const [title, setTitle] = useState(task.title);
+  const [note, setNote] = useState(task.note);
+  const [noteShow, setNoteShow] = useState(task.note.length > 0);
 
   const estPomoChangeHanlder = (event) => {
     setEstPomo(event.target.value);
@@ -49,9 +51,18 @@ const TaskDetailForm = (props) => {
     setTitle(event.target.value);
   };
 
+  const noteChangeHandler = (event) => {
+    setNote(event.target.value);
+  };
+
+  const noteShowHandler = () => {
+    setNoteShow((preState) => !preState);
+  };
+
   const saveTaskHandler = () => {
     task.title = title;
     task.estimatedPomo = estPomo;
+    task.note = note;
     if (props.addNew) {
       task.id = "m" + Math.floor(Math.random() * 100000);
       props.onSubmit(task);
@@ -112,7 +123,19 @@ const TaskDetailForm = (props) => {
             </div>
           </div>
           <div className={classes.detail_section_block}>
-            <Button className={classes.add_note_button}>+ Add Note</Button>
+            {!noteShow ? (
+              <Button
+                className={classes.add_note_button}
+                onClick={noteShowHandler}>
+                + Add Note
+              </Button>
+            ) : (
+              <textarea
+                placeholder='Some notes...'
+                className={classes.note}
+                value={note}
+                onChange={noteChangeHandler}></textarea>
+            )}
           </div>
         </div>
       </div>

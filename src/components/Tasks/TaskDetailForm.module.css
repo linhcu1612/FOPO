@@ -178,3 +178,20 @@
 .action_save:hover {
   background-color: rgb(34, 34, 34) !important;
 }
+
+.note {
+  border-radius: 4px;
+  background-color: rgb(239, 239, 239);
+  border: none;
+  padding: 10px 14px;
+  color: rgb(85, 85, 85);
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 1.4em;
+  margin: 8px 0px;
+}
+
+.note:fovus {
+  outline: none;
+}
