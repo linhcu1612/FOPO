@@ -37,7 +37,8 @@ const Task = (props) => {
     dispatch(taskActions.deleteTask(id));
   };
 
-  const toggleDoneHandler = () => {
+  const toggleDoneHandler = (event) => {
+    event.stopPropagation();
     dispatch(taskActions.doneTask(props.id));
   };
 
