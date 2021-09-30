@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import ReportButton from "../UIs/ReportButton";
 import SettingButton from "../UIs/SettingButton";
 import UserAvatar from "../UIs/UserAvatar";
+import DarkLightModeButton from "../UIs/DarkLightModeButton";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
@@ -35,6 +36,7 @@ export default function Header() {
         Pomofocus
       </Link>
       <Stack direction='row' spacing={2}>
+        <DarkLightModeButton />
         <ReportButton />
         <SettingButton />
         <UserAvatar />
