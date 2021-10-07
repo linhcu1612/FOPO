@@ -3,22 +3,15 @@
 .darkModeButton {
   border: none;
   background: none;
-  opacity: 0.7;
   position: relative;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  width: 40px;
-  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-}
-
-.darkModeButton:hover {
-  opacity: 1;
 }
 
 .DarkModeToggle__MoonOrSun {
