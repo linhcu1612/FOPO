@@ -123,6 +123,7 @@ export default function Pomodoro(props) {
           color={pomo[currPomoIndex].color}
           title={!pomoRun ? "START" : "STOP"}
           onClick={actionButtonHandler}
+          pomoRun={pomoRun}
         />
         {pomoRun ? (
           <SkipNextIcon className={classes.icon} onClick={changePomoHandler} />
