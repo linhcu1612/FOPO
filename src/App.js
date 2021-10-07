@@ -12,20 +12,23 @@ function App() {
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
   return (
-    <Container
-      maxWidth='md'
-      style={{
-        backgroundColor: `${pomo[currPomoIndex].color}`,
-        padding: "25px",
-        borderRadius: "20px",
-        marginTop: "50px",
-        marginBottom: "50px",
-        opacity: "0.9",
-        transition: "background-color 0.5s ease-in-out 0s",
-      }}>
-      <Header />
-      <Main />
-    </Container>
+    <>
+      <div className='bg'></div>
+      <Container
+        maxWidth='md'
+        style={{
+          backgroundColor: `${pomo[currPomoIndex].color}`,
+          padding: "25px",
+          borderRadius: "20px",
+          marginTop: "50px",
+          marginBottom: "50px",
+          opacity: "0.9",
+          transition: "background-color 0.5s ease-in-out 0s",
+        }}>
+        <Header />
+        <Main />
+      </Container>
+    </>
   );
 }
 
