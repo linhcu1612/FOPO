@@ -8,19 +8,25 @@ const initialPomoState = {
       id: 0,
       title: "Pomodoro",
       minute: 25,
-      color: "rgb(215, 75, 71)",
+      color: "rgb(56,58,88)",
+      //rgb(56,58,88)
+      //rgb(215, 75, 71)
     },
     {
       id: 1,
       title: "Short Break",
       minute: 5,
-      color: "rgb(70, 142, 145)",
+      color: "#2d3050",
+      //rgb(189,147,249)
+      //rgb(70, 142, 145)
     },
     {
       id: 2,
       title: "Long Break",
       minute: 15,
-      color: "rgb(67, 126, 168)",
+      color: "rgb(40,42,54)",
+      //rgb(40,42,54)
+      //rgb(67, 126, 168)
     },
   ],
   pomoDone: 0,

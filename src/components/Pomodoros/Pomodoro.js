@@ -104,7 +104,7 @@ export default function Pomodoro(props) {
     <Card sx={{ maxWidth: 345 }} className={classes.card}>
       <Stack
         direction='row'
-        spacing={2}
+        spacing={1}
         mt={2}
         mb={5}
         className={classes.stack}>

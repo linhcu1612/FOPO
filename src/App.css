@@ -3,7 +3,8 @@ body {
   background: url("./assets/background.jpg") no-repeat center center fixed;
   min-width: 100%;
   min-height: 100%;
-  color: white;
+  /* color: white; */
+  color: rgb(189, 147, 249);
   padding-bottom: 12px;
   box-sizing: border-box;
 }

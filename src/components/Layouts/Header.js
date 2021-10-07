@@ -30,7 +30,7 @@ export default function Header() {
           alignItems: "center",
           color: "white",
           fontWeight: "bold",
-          fontSize: "20px",
+          fontSize: "24px",
         }}>
         <CheckCircleIcon style={{ marginRight: "5px", width: "30px" }} />
         Pomofocus

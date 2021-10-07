@@ -14,8 +14,10 @@ export default function PomodoroTopBarButton(props) {
       style={{
         marginRight: "10px",
         marginLeft: "10px",
-        fontSize: "18px",
-        color: "white",
+        fontSize: "20px",
+        color: "rgb(189, 147, 249)",
+        //rgb(189, 147, 249)
+        //white
         border: "none",
         textTransform: "unset",
       }}
