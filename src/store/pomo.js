@@ -24,7 +24,7 @@ const initialPomoState = {
       id: 2,
       title: "Long Break",
       minute: 15,
-      color: "rgb(40,42,54)",
+      color: "#35384e",
       //rgb(40,42,54)
       //rgb(67, 126, 168)
     },
