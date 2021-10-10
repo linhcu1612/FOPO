@@ -10,7 +10,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
-export default function Header() {
+export default function Header(props) {
   return (
     <Box
       sx={{
@@ -36,7 +36,7 @@ export default function Header() {
         Pomofocus
       </Link>
       <Stack direction='row' spacing={2}>
-        <DarkLightModeButton />
+        <DarkLightModeButton changeTheme={props.changeTheme} />
         <ReportButton />
         <SettingButton />
         <UserAvatar />

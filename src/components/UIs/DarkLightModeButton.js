@@ -20,10 +20,11 @@ const LightTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-const DarkLightModeButton = () => {
+const DarkLightModeButton = ({ changeTheme }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   const darkModeButtonHandler = () => {
+    changeTheme();
     setDarkMode((preState) => !preState);
   };
 

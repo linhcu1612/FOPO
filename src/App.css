@@ -1,12 +1,4 @@
 /** @format */
-body {
-  height: 100%;
-  /* color: white; */
-  color: rgb(189, 147, 249);
-  padding-bottom: 12px;
-  box-sizing: border-box;
-  margin: 0;
-}
 
 .bg {
   height: 100%;
