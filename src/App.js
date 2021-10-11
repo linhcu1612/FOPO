@@ -63,7 +63,7 @@ function App() {
           opacity: "0.9",
           transition: "background-color 0.5s ease-in-out 0s",
         }}>
-        <Header changeTheme={themeToggler} />
+        <Header changeTheme={themeToggler} theme={theme} />
         <Main theme={theme} />
       </Container>
     </ThemeProvider>

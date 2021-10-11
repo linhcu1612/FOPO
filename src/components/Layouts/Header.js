@@ -36,7 +36,10 @@ export default function Header(props) {
         Pomofocus
       </Link>
       <Stack direction='row' spacing={2}>
-        <DarkLightModeButton changeTheme={props.changeTheme} />
+        <DarkLightModeButton
+          changeTheme={props.changeTheme}
+          theme={props.theme}
+        />
         <ReportButton />
         <SettingButton />
         <UserAvatar />
