@@ -19,8 +19,6 @@ export default function Pomodoro(props) {
   const dispatch = useDispatch();
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
-
-  //useReducer ?
   const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);
@@ -41,6 +39,10 @@ export default function Pomodoro(props) {
     if (currPomoIndex >= 1) {
       pomoTopBarHandler(0);
     } else {
+      alert("Do You Really Want To Skip The Current Pomodoro ?");
+      //modal with option for yes/no button
+      //if yes then call pomoTopbarHandler and increment pomo count of current task and pomoDone by 1
+      //if no then return;
       pomoTopBarHandler(+currPomoIndex + 1);
     }
   }, [currPomoIndex, pomoTopBarHandler]);
