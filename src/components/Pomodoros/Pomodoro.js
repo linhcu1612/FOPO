@@ -25,6 +25,8 @@ export default function Pomodoro(props) {
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);
 
+  const bgColor = pomo[currPomoIndex][`color_${props.theme}`];
+
   const pomoTopBarHandler = useCallback(
     (id) => {
       setPomoRun(false);
@@ -120,7 +122,7 @@ export default function Pomodoro(props) {
       <CardActions className={classes.card_action}>
         <PomodoroActionButton
           variant='contained'
-          color={pomo[currPomoIndex].color}
+          color={bgColor}
           title={!pomoRun ? "START" : "STOP"}
           running={pomoRun}
           onClick={actionButtonHandler}

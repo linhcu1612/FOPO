@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 import classes from "./Main.module.css";
 
-export default function Main() {
+export default function Main(props) {
   const [lengthProgress, setlengthProgress] = useState(0);
 
   const pomo = useSelector((state) => state.pomo.pomoList);
@@ -25,7 +25,7 @@ export default function Main() {
           className={classes.progress_line}
           style={{ width: `${lengthProgress}%` }}></div>
       </div>
-      <Pomodoro onTimerChange={currTimerHanlder} />
+      <Pomodoro onTimerChange={currTimerHanlder} theme={props.theme} />
       <Tasks />
     </>
   );

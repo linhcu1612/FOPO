@@ -1,6 +1,4 @@
 /** @format */
-import { useState } from "react";
-
 import "./App.css";
 
 import Container from "@mui/material/Container";
@@ -11,6 +9,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import { lightTheme, darkTheme } from "./Themes";
 
+import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
 
 const Background = styled.div`
@@ -28,18 +27,35 @@ const Background = styled.div`
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
-  const [theme, setTheme] = useState("light");
-  const themeToggler = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
-  };
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  const bgColor = pomo[currPomoIndex][`color_${theme}`];
+  if (!mountedComponent)
+    return (
+      <div className='lds-spinner'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Background />
       <Container
         maxWidth='md'
         style={{
-          backgroundColor: `${pomo[currPomoIndex].color}`,
+          backgroundColor: `${bgColor}`,
           padding: "25px",
           borderRadius: "20px",
           marginTop: "50px",
@@ -48,7 +64,7 @@ function App() {
           transition: "background-color 0.5s ease-in-out 0s",
         }}>
         <Header changeTheme={themeToggler} />
-        <Main />
+        <Main theme={theme} />
       </Container>
     </ThemeProvider>
   );
