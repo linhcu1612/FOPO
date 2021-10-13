@@ -1,6 +1,8 @@
 /** @format */
 import "./App.css";
 
+import { useState, useEffect } from "react";
+
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
@@ -8,6 +10,9 @@ import Main from "./components/Layouts/Main";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import { lightTheme, darkTheme } from "./Themes";
+
+import background_light from "./assets/background/light_default.jpg";
+import background_dark from "./assets/background/dark_default.jpg";
 
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
@@ -28,10 +33,34 @@ function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
   const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const imgs = [background_light, background_dark];
+
+    cacheImages(imgs);
+  }, []);
+
+  const cacheImages = async (srcArr) => {
+    const promises = await srcArr.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+
+        img.src = src;
+        img.onload = resolve();
+        img.onerror = reject();
+      });
+    });
+
+    await Promise.all(promises);
+
+    setIsLoading(false);
+  };
+
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
-  if (!mountedComponent)
+  if (!mountedComponent && isLoading)
     return (
       <div className='lds-spinner'>
         <div></div>

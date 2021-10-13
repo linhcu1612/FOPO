@@ -127,6 +127,7 @@ export default function Pomodoro(props) {
           color={bgColor}
           title={!pomoRun ? "START" : "STOP"}
           running={pomoRun}
+          theme={props.theme}
           onClick={actionButtonHandler}
         />
         {pomoRun ? (
