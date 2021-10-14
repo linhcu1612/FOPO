@@ -1,14 +1,21 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./PomodoroActionButton.module.css";
 import ReactHowler from "react-howler";
 import beachMusic from "../../assets/music/beach.mp3";
 import rainMusic from "../../assets/music/rain.mp3";
 
 export default function PomodoroActionButton(props) {
+  const [context, setContext] = useState(null);
+
+  useEffect(() => {
+    setContext(new AudioContext());
+  }, []);
+
   const handlePomoActionButtonClick = () => {
     props.onClick();
+    context.resume();
   };
 
   const music = props.theme === "light" ? beachMusic : rainMusic;
