@@ -14,8 +14,8 @@ export default function PomodoroActionButton(props) {
   }, []);
 
   const handlePomoActionButtonClick = () => {
-    props.onClick();
     context.resume();
+    props.onClick();
   };
 
   const music = props.theme === "light" ? beachMusic : rainMusic;
