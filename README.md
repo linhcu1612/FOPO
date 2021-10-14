@@ -1,8 +1,8 @@
 <!-- @format -->
 
-# Project Header
+# Focodoro
 
-This project is front-end focused for building a clone of Pomofocus which is an application that support me during my study time
+This project is build from
 
 # Getting Started with Create React App
 

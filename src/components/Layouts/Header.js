@@ -34,7 +34,7 @@ export default function Header(props) {
           fontSize: "24px",
         }}>
         <CheckCircleIcon style={{ marginRight: "5px", width: "30px" }} />
-        Pomofocus
+        FOPO
       </Link>
       <Stack direction='row' spacing={2}>
         <MusicButton />
