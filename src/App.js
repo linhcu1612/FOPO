@@ -60,7 +60,7 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
-  if (!mountedComponent || isLoading)
+  if (!mountedComponent && isLoading)
     return (
       <div className='lds-spinner'>
         <div></div>

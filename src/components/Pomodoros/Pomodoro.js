@@ -3,12 +3,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { pomoActions } from "../../store/pomo";
+import { useAudio } from "../../hooks/useAudio";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
+
+import classicalMusic from "../../assets/music/classical.mp3";
+//import beachMusic from "../../assets/music/beach.mp3";
+//import rainMusic from "../../assets/music/rain.mp3";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -19,6 +24,12 @@ export default function Pomodoro(props) {
   const dispatch = useDispatch();
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
+
+  //split to redux ?
+  const [playingPomo, togglePlayingPomo] = useAudio(classicalMusic);
+  //const [playingShortBreak, togglePlayingShortBreak] = useAudio(beachMusic);
+  //const [playingLongBreak, togglePlayingLongBreak] = useAudio(rainMusic);
+
   const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);
@@ -28,18 +39,21 @@ export default function Pomodoro(props) {
   const pomoTopBarHandler = useCallback(
     (id) => {
       setPomoRun(false);
+      if (playingPomo) {
+        togglePlayingPomo();
+      }
       dispatch(pomoActions.changePomo(id));
       setPomoSecond(0);
       setPomoMinute(pomo[id].minute);
     },
-    [pomo, dispatch]
+    [pomo, dispatch, playingPomo, togglePlayingPomo]
   );
 
   const changePomoHandler = useCallback(() => {
     if (currPomoIndex >= 1) {
       pomoTopBarHandler(0);
     } else {
-      alert("Do You Really Want To Skip The Current Pomodoro ?");
+      //alert("Do You Really Want To Skip The Current Pomodoro ?");
       //modal with option for yes/no button
       //if yes then call pomoTopbarHandler and increment pomo count of current task and pomoDone by 1
       //if no then return;
@@ -80,6 +94,7 @@ export default function Pomodoro(props) {
   ]);
 
   const actionButtonHandler = () => {
+    togglePlayingPomo();
     setPomoRun((preState) => !preState);
   };
 

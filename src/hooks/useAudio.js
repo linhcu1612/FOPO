@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export const useAudio = (url) => {
   const [audio] = useState(new Audio(url));
+
   const [playing, setPlaying] = useState(false);
 
   const toggle = () => setPlaying(!playing);
@@ -17,7 +18,7 @@ export const useAudio = (url) => {
     return () => {
       audio.removeEventListener("ended", () => setPlaying(false));
     };
-  }, []);
+  }, [audio]);
 
   return [playing, toggle];
 };
