@@ -1,14 +1,37 @@
 <!-- @format -->
 
-# Focodoro
+# FOMO
 
-This project is build from
+This project is build from scratch with UI design got inspired from Pomofocus.io
 
-# Getting Started with Create React App
+# Technology Involved
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Front-end: React, Redux
+- Design: MUI
 
-## Available Scripts
+# Usage Guide
+
+## For Running The Project Locally
+
+1. Clone the project with:
+
+### `git clone git@github.com:linhcu1612/FOMO.git`
+
+2. In the project directory:
+
+First install node_modules
+
+### `npm install` 
+
+Start the project
+
+### `npm run start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
 In the project directory, you can run:
 
