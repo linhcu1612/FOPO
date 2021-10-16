@@ -8,8 +8,8 @@ import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
 
 import styled, { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./globalStyles";
-import { lightTheme, darkTheme } from "./Themes";
+import { GlobalStyles } from "./styles/globalStyles";
+import { lightTheme, darkTheme } from "./styles/Themes";
 
 import background_light from "./assets/background/light_default.jpg";
 import background_dark from "./assets/background/dark_default.jpg";
