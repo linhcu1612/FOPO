@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header";
 import Main from "./components/Layouts/Main";
+import Loader from "./components/UIs/Loader";
 
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/globalStyles";
@@ -60,23 +61,14 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
-  if (!mountedComponent && isLoading)
+  if (!mountedComponent && isLoading) {
+    console.log(themeMode);
     return (
-      <div className='lds-spinner'>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <ThemeProvider theme={themeMode}>
+        <Loader />
+      </ThemeProvider>
     );
+  }
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
