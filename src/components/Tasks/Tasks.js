@@ -11,7 +11,7 @@ import EstTask from "./EstTask";
 import { useSelector, useDispatch } from "react-redux";
 import { taskActions } from "../../store/task";
 
-const Task = () => {
+const Tasks = (props) => {
   const dispatch = useDispatch();
   const task = useSelector((state) => state.task.taskList);
 
@@ -35,11 +35,11 @@ const Task = () => {
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
-      <TasksList />
+      <TasksList theme={props.theme} />
       <AddTask addNewTask={addNewTaskHandler} />
       {task.length > 0 && <EstTask est={+estCal()} act={+actCal()} />}
     </div>
   );
 };
 
-export default Task;
+export default Tasks;

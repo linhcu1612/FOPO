@@ -26,7 +26,7 @@ export default function Main(props) {
           style={{ width: `${lengthProgress}%` }}></div>
       </div>
       <Pomodoro onTimerChange={currTimerHanlder} theme={props.theme} />
-      <Tasks />
+      <Tasks theme={props.theme} />
     </>
   );
 }

@@ -5,7 +5,7 @@ import light_default from "../assets/background/light_default.jpg";
 
 export const lightTheme = {
   background_img: light_default,
-  background: "#fff",
+  background: "rgba(255,255,255,0.7)",
   text: "#FFF",
 };
 

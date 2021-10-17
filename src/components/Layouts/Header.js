@@ -7,33 +7,15 @@ import SettingButton from "../UIs/SettingButton";
 import UserAvatar from "../UIs/UserAvatar";
 import DarkLightModeButton from "../UIs/DarkLightModeButton";
 import MusicButton from "../UIs/MusicButton";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
+import classes from "./Header.module.css";
+
 export default function Header(props) {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-      mt={3}
-      mx={4}
-      pb={3}>
-      <Link
-        href='/'
-        className=''
-        underline='none'
-        style={{
-          display: "flex",
-          alignItems: "center",
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "24px",
-        }}>
-        <CheckCircleIcon style={{ marginRight: "5px", width: "30px" }} />
+    <Box className={classes.header_container} mt={3} mx={4} pb={3}>
+      <Link href='/' className={classes.header_logo} underline='none'>
         FOPO
       </Link>
       <Stack direction='row' spacing={2}>

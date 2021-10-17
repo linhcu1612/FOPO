@@ -19,6 +19,9 @@ const Task = (props) => {
   const isDoingClass = props.id === currTaskId ? classes.task_current : "";
   const taskClasses = classes.task + " " + isDoingClass;
 
+  const doneColor =
+    props.theme === "dark" ? "rgb(189, 147, 249)" : "rgb(215, 75, 71)";
+
   const toggleTaskDetailHandler = () => {
     setTaskDetailShow(true);
   };
@@ -55,11 +58,10 @@ const Task = (props) => {
                 className={classes.task_left_done_button}
                 onClick={toggleDoneHandler}>
                 <CheckCircleIcon
-                  className={
-                    props.isDone
-                      ? classes.task_left_done_icon_done
-                      : classes.task_left_done_icon
-                  }
+                  className={classes.task_left_done_icon}
+                  style={{
+                    color: props.isDone ? doneColor : "rgb(223, 223, 223)",
+                  }}
                 />
               </Button>
               <div

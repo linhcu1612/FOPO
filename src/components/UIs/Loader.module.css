@@ -1,4 +1,13 @@
 /** @format */
+.quote {
+  color: tomato;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  font-weight: bold;
+  opacity: 0.8;
+  transform: translateX(-50%);
+}
 
 .lds_spinner {
   color: tomato;
@@ -7,22 +16,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 160px;
   z-index: 999;
 }
 .lds_spinner div {
-  transform-origin: 40px 40px;
+  transform-origin: 80px 80px;
   animation: lds_spinner 1.2s linear infinite;
 }
 .lds_spinner div:after {
   content: " ";
   display: block;
   position: absolute;
-  top: 3px;
-  left: 37px;
-  width: 6px;
-  height: 18px;
+  top: 6px;
+  left: 74px;
+  width: 12px;
+  height: 36px;
   border-radius: 20%;
   background: rgb(215, 75, 71);
 }

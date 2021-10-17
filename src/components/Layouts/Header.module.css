@@ -1,0 +1,18 @@
+/** @format */
+
+.header_container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  top: 0;
+  left: 20px;
+  right: 20px;
+}
+
+.header_logo {
+  color: white !important;
+  font-weight: bold;
+  font-size: 24px;
+}

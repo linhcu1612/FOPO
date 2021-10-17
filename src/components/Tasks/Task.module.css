@@ -77,15 +77,6 @@
 .task_left_done_icon {
   width: 32px !important;
   height: 32px !important;
-  color: rgb(223, 223, 223);
-}
-
-.task_left_done_icon_done {
-  width: 32px !important;
-  height: 32px !important;
-  color: rgb(189, 147, 249);
-  /* rgb(189,147,249) dark
-  rgb(215, 75, 71) light */
 }
 
 .task_right {

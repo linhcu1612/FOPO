@@ -38,7 +38,6 @@ function App() {
 
   useEffect(() => {
     const imgs = [background_light, background_dark];
-
     cacheImages(imgs);
   }, []);
 
@@ -61,11 +60,11 @@ function App() {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
-  if (!mountedComponent && isLoading) {
-    console.log(themeMode);
+
+  if (isLoading || !mountedComponent) {
     return (
       <ThemeProvider theme={themeMode}>
-        <Loader />
+        <Loader quote='Loading' />
       </ThemeProvider>
     );
   }
@@ -73,18 +72,18 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Background />
+      <Header changeTheme={themeToggler} theme={theme} />
       <Container
         maxWidth='md'
         style={{
           backgroundColor: `${bgColor}`,
           padding: "25px",
           borderRadius: "20px",
-          marginTop: "50px",
+          marginTop: "120px",
           marginBottom: "50px",
           opacity: "0.9",
           transition: "background-color 0.5s ease-in-out 0s",
         }}>
-        <Header changeTheme={themeToggler} theme={theme} />
         <Main theme={theme} />
       </Container>
     </ThemeProvider>
