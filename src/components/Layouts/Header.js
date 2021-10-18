@@ -10,13 +10,16 @@ import MusicButton from "../UIs/MusicButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
+import logo from "../../assets/logos/Fopo.png";
+
 import classes from "./Header.module.css";
 
 export default function Header(props) {
   return (
     <Box className={classes.header_container} mt={3} mx={4} pb={3}>
       <Link href='/' className={classes.header_logo} underline='none'>
-        FOPO
+        FOMO
+        <img src={logo} alt='Fopo Logo' className={classes.header_logo_icon} />
       </Link>
       <Stack direction='row' spacing={2}>
         <MusicButton />
