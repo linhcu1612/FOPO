@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header/Header";
-import Main from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import Loader from "./components/UIs/Loader";
 
 import styled, { ThemeProvider } from "styled-components";
@@ -15,10 +15,15 @@ import background_dark from "./assets/background/dark_default.jpg";
 
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
+import { useAudio } from "./hooks/useAudio";
+
+import classicalMusic from "./assets/music/classical.mp3";
+//import beachMusic from "../../assets/music/beach.mp3";
+//import rainMusic from "../../assets/music/rain.mp3";
 
 // ROUTER
-import { BrowserRouter } from "react-router-dom";
-import { RouterConfig } from "navigation/RouterConfig";
+//import { BrowserRouter } from "react-router-dom";
+//import { RouterConfig } from "navigation/RouterConfig";
 
 const Background = styled.div`
   height: 100%;
@@ -35,6 +40,7 @@ const Background = styled.div`
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
+  const [playing, togglePlaying] = useAudio(classicalMusic);
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -75,6 +81,7 @@ function App() {
       <GlobalStyles />
       <Background />
       <Header changeTheme={themeToggler} theme={theme} />
+      {/* Home */}
       <Container
         maxWidth='md'
         style={{
@@ -86,7 +93,7 @@ function App() {
           opacity: "0.9",
           transition: "background-color 0.5s ease-in-out 0s",
         }}>
-        <Main theme={theme} />
+        <Home theme={theme} playing={playing} togglePlaying={togglePlaying} />
       </Container>
     </ThemeProvider>
   );

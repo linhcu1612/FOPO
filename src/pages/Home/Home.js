@@ -25,7 +25,12 @@ export default function Home(props) {
           className={classes.progress_line}
           style={{ width: `${lengthProgress}%` }}></div>
       </div>
-      <Pomodoro onTimerChange={currTimerHanlder} theme={props.theme} />
+      <Pomodoro
+        onTimerChange={currTimerHanlder}
+        theme={props.theme}
+        playing={props.playing}
+        togglePlaying={props.togglePlaying}
+      />
       <Tasks theme={props.theme} />
     </>
   );

@@ -3,17 +3,12 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { pomoActions } from "../../store/pomo";
-import { useAudio } from "../../hooks/useAudio";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import PomodoroTopBarButton from "./PomodoroTopBarButton";
 import PomodoroActionButton from "./PomodoroActionButton";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
-
-import classicalMusic from "../../assets/music/classical.mp3";
-//import beachMusic from "../../assets/music/beach.mp3";
-//import rainMusic from "../../assets/music/rain.mp3";
 
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -25,8 +20,6 @@ export default function Pomodoro(props) {
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
-  //split to redux ?
-  const [playingPomo, togglePlayingPomo] = useAudio(classicalMusic);
   //const [playingShortBreak, togglePlayingShortBreak] = useAudio(beachMusic);
   //const [playingLongBreak, togglePlayingLongBreak] = useAudio(rainMusic);
 
@@ -39,14 +32,14 @@ export default function Pomodoro(props) {
   const pomoTopBarHandler = useCallback(
     (id) => {
       setPomoRun(false);
-      if (playingPomo) {
-        togglePlayingPomo();
+      if (props.playing) {
+        props.togglePlaying();
       }
       dispatch(pomoActions.changePomo(id));
       setPomoSecond(0);
       setPomoMinute(pomo[id].minute);
     },
-    [pomo, dispatch, playingPomo, togglePlayingPomo]
+    [pomo, dispatch, props]
   );
 
   const changePomoHandler = useCallback(() => {
@@ -94,7 +87,7 @@ export default function Pomodoro(props) {
   ]);
 
   const actionButtonHandler = () => {
-    togglePlayingPomo();
+    props.togglePlaying();
     setPomoRun((preState) => !preState);
   };
 
