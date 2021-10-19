@@ -2,15 +2,15 @@
 
 import React from "react";
 import Box from "@mui/material/Box";
-import ReportButton from "../UIs/ReportButton";
-import SettingButton from "../UIs/SettingButton";
-import UserAvatar from "../UIs/UserAvatar";
-import DarkLightModeButton from "../UIs/DarkLightModeButton";
-import MusicButton from "../UIs/MusicButton";
+import ReportButton from "../../UIs/ReportButton";
+import SettingButton from "../../UIs/SettingButton";
+import UserAvatar from "../../UIs/UserAvatar";
+import DarkLightModeButton from "../../UIs/DarkLightModeButton";
+import MusicButton from "../../UIs/MusicButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
-import logo from "../../assets/logos/Fopo.png";
+import logo from "../../../assets/logos/Fopo.png";
 
 import classes from "./Header.module.css";
 

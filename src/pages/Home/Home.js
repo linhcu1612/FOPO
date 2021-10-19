@@ -1,14 +1,14 @@
 /** @format */
 
 import React, { useState } from "react";
-import Pomodoro from "../Pomodoros/Pomodoro";
-import Tasks from "../Tasks/Tasks";
+import Pomodoro from "../../components/Pomodoros/Pomodoro";
+import Tasks from "../../components/Tasks/Tasks";
 
 import { useSelector } from "react-redux";
 
-import classes from "./Main.module.css";
+import classes from "./Home.module.css";
 
-export default function Main(props) {
+export default function Home(props) {
   const [lengthProgress, setlengthProgress] = useState(0);
 
   const pomo = useSelector((state) => state.pomo.pomoList);

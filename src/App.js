@@ -1,11 +1,9 @@
 /** @format */
-import "./App.css";
-
 import { useState, useEffect } from "react";
 
 import Container from "@mui/material/Container";
-import Header from "./components/Layouts/Header";
-import Main from "./components/Layouts/Main";
+import Header from "./components/Layouts/Header/Header";
+import Main from "./pages/Home/Home";
 import Loader from "./components/UIs/Loader";
 
 import styled, { ThemeProvider } from "styled-components";
@@ -17,6 +15,10 @@ import background_dark from "./assets/background/dark_default.jpg";
 
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
+
+// ROUTER
+import { BrowserRouter } from "react-router-dom";
+import { RouterConfig } from "navigation/RouterConfig";
 
 const Background = styled.div`
   height: 100%;
