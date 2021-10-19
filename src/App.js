@@ -85,7 +85,7 @@ function App() {
       <Container
         maxWidth='md'
         style={{
-          backgroundColor: `${bgColor}`,
+          background: `${bgColor}`,
           padding: "25px",
           borderRadius: "20px",
           marginTop: "120px",
