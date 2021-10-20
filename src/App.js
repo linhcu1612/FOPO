@@ -17,10 +17,6 @@ import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
 import { useAudio } from "./hooks/useAudio";
 
-import classicalMusic from "./assets/music/classical.mp3";
-//import beachMusic from "../../assets/music/beach.mp3";
-//import rainMusic from "../../assets/music/rain.mp3";
-
 // ROUTER
 //import { BrowserRouter } from "react-router-dom";
 //import { RouterConfig } from "navigation/RouterConfig";
@@ -40,7 +36,7 @@ const Background = styled.div`
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
-  const [playing, togglePlaying] = useAudio(classicalMusic);
+  const [playing, togglePlaying] = useAudio();
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const [isLoading, setIsLoading] = useState(true);
 

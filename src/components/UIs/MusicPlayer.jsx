@@ -9,7 +9,7 @@ import classicalMusic from "../../assets/music/classical.mp3";
 //import rainMusic from "../../assets/music/rain.mp3";
 
 const MusicPlayer = () => {
-  return <div></div>;
+  return <></>;
 };
 
 export default MusicPlayer;

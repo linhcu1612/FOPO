@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 export const useAudio = (url) => {
   const [audio] = useState(new Audio(url));
 
-  console.log("rerender");
-
   const [playing, setPlaying] = useState(false);
 
   const toggle = () => setPlaying(!playing);
