@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# FOMO
+# FOPO
 
 This project is build from scratch with UI design got inspired from Pomofocus.io
 
