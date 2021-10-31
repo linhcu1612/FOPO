@@ -17,8 +17,6 @@ const initialUIState = {
       text: "#FFF",
     },
   },
-  music:
-    "https://fopo-assets.s3.ap-southeast-2.amazonaws.com/music/music/classical.mp3",
 };
 
 const uiSlice = createSlice({

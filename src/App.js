@@ -37,8 +37,8 @@ function App() {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
 
   useEffect(() => {
-    setAudio(new Audio(ui.music));
-  }, [ui.music, setAudio]);
+    setAudio(pomo[currPomoIndex].music);
+  }, [currPomoIndex, setAudio, pomo]);
 
   const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
 
