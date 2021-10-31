@@ -1,5 +1,5 @@
 /** @format */
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header/Header";
@@ -8,10 +8,6 @@ import Loader from "./components/UIs/Loader";
 
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/globalStyles";
-import { lightTheme, darkTheme } from "./styles/Themes";
-
-import background_light from "./assets/background/light_default.jpg";
-import background_dark from "./assets/background/dark_default.jpg";
 
 import { useDarkMode } from "./hooks/useDarkMode";
 import { useSelector } from "react-redux";
@@ -35,37 +31,20 @@ const Background = styled.div`
 
 function App() {
   const pomo = useSelector((state) => state.pomo.pomoList);
+  const ui = useSelector((state) => state.ui);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
-  const [playing, togglePlaying] = useAudio();
+  const [playing, togglePlaying, setAudio] = useAudio();
   const [theme, themeToggler, mountedComponent] = useDarkMode();
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const imgs = [background_light, background_dark];
-    cacheImages(imgs);
-  }, []);
+    setAudio(new Audio(ui.music));
+  }, [ui.music, setAudio]);
 
-  const cacheImages = async (srcArr) => {
-    const promises = await srcArr.map((src) => {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-
-        img.src = src;
-        img.onload = resolve();
-        img.onerror = reject();
-      });
-    });
-
-    await Promise.all(promises);
-
-    setIsLoading(false);
-  };
-
-  const themeMode = theme === "light" ? lightTheme : darkTheme;
+  const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
 
-  if (isLoading || !mountedComponent) {
+  if (!mountedComponent) {
     return (
       <ThemeProvider theme={themeMode}>
         <Loader quote='Loading' />

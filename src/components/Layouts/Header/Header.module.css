@@ -18,9 +18,10 @@
 }
 
 .header_logo_icon {
+  height: 100px;
+  width: 100px;
   position: absolute;
-  scale: 0.4;
   display: block;
-  top: -85px;
-  left: 10px;
+  top: -10px;
+  left: 90px;
 }
