@@ -1,6 +1,7 @@
 /** @format */
 
 export const ROOT = "/";
-export const LOGIN = "/login";
-export const DASHBOARD = "/dashboard";
-export const AUTH_PAGE1 = "/authorized1";
+export const AUTH = "/auth";
+export const SETTING = "/setting";
+export const MUSIC = "/music";
+export const REPORT = "/report";

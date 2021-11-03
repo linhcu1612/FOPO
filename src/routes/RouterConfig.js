@@ -2,14 +2,13 @@
 
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "pages/Home/Home";
-// import Dashboard from "pages/Dashboard";
-import { NotFound } from "navigation/NotFound";
-import { ROOT } from "navigation/CONSTANTS";
-// import { Page1 } from "pages/Page1";
-// import Login from "./Auth/Login";
-// import { AuthorizedPage1 } from "pages/AuthorizedPage1";
-// import PrivateRoute from "./Auth/PrivateRoute";
+import Home from "../pages/Home/Home";
+import Auth from "../pages/Auth/Auth";
+import Setting from "../pages/Setting/Setting";
+import Music from "../pages/Music/Music";
+import Report from "../pages/Report/Report";
+import NotFound from "../pages/NotFound/NotFound";
+import { ROOT, AUTH, SETTING, MUSIC, REPORT } from "./CONSTANTS";
 
 export const RouterConfig = () => {
   return (
@@ -17,9 +16,11 @@ export const RouterConfig = () => {
       <Switch>
         {/* List all public routes here */}
         <Route exact path={ROOT} component={Home} />
-        {/* <Route exact path={DASHBOARD} component={Dashboard} /> */}
-        {/* <Route exact path={PAGE1} component={Page1} />
-        <Route path='/login'>
+        <Route exact path={AUTH} component={Auth} />
+        <Route exact path={SETTING} component={Setting} />
+        <Route exact path={MUSIC} component={Music} />
+        <Route exact path={REPORT} component={Report} />
+        {/* <Route path='/login'>
           <Login />
         </Route> */}
 
