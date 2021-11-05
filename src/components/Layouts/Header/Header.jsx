@@ -28,14 +28,14 @@ export default function Header(props) {
         FOMO
         <img src={logo} alt='Fopo Logo' className={classes.header_logo_icon} />
       </Link>
+      <DarkLightModeButton
+        changeTheme={props.changeTheme}
+        theme={props.theme}
+      />
       <Stack direction='row' spacing={2}>
         <Link to={MUSIC}>
           <MusicButton />
         </Link>
-        <DarkLightModeButton
-          changeTheme={props.changeTheme}
-          theme={props.theme}
-        />
         <Link to={REPORT}>
           <ReportButton />
         </Link>

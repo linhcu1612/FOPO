@@ -55,12 +55,11 @@ function App() {
             background: `${bgColor}`,
             padding: "25px",
             borderRadius: "20px",
-            marginTop: "120px",
             marginBottom: "50px",
             opacity: "0.9",
             transition: "background-color 0.5s ease-in-out 0s",
           }}>
-          <RouterConfig />
+          <RouterConfig theme={theme} />
         </Container>
       </BrowserRouter>
     </ThemeProvider>

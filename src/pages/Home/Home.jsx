@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useAudio } from "../../hooks/useAudio";
-import { useDarkMode } from "../../hooks/useDarkMode";
 import Pomodoro from "../../components/Pomodoros/Pomodoro";
 import Tasks from "../../components/Tasks/Tasks";
 
@@ -10,8 +9,7 @@ import { useSelector } from "react-redux";
 
 import classes from "./Home.module.css";
 
-export default function Home() {
-  const [theme] = useDarkMode();
+export default function Home(props) {
   const [lengthProgress, setlengthProgress] = useState(0);
   const [playing, togglePlaying, setAudio] = useAudio();
   const pomo = useSelector((state) => state.pomo.pomoList);
@@ -34,11 +32,11 @@ export default function Home() {
       </div>
       <Pomodoro
         onTimerChange={currTimerHanlder}
-        theme={theme}
+        theme={props.theme}
         playing={playing}
         togglePlaying={togglePlaying}
       />
-      <Tasks theme={theme} />
+      <Tasks theme={props.theme} />
     </>
   );
 }

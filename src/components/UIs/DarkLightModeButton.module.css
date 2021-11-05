@@ -1,6 +1,7 @@
 /** @format */
 
 .darkModeButton {
+  width: 60px;
   border: none;
   background: none;
   position: relative;
@@ -10,8 +11,9 @@
   border-bottom-left-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .DarkModeToggle__MoonOrSun {

@@ -10,12 +10,14 @@ import Report from "../pages/Report/Report";
 import NotFound from "../pages/NotFound/NotFound";
 import { ROOT, AUTH, SETTING, MUSIC, REPORT } from "./CONSTANTS";
 
-export const RouterConfig = () => {
+export const RouterConfig = (props) => {
   return (
     <div>
       <Switch>
         {/* List all public routes here */}
-        <Route exact path={ROOT} component={Home} />
+        <Route exact path={ROOT}>
+          <Home theme={props.theme} />
+        </Route>
         <Route exact path={AUTH} component={Auth} />
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />

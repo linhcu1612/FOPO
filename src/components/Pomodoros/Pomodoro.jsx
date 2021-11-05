@@ -19,10 +19,6 @@ export default function Pomodoro(props) {
   const dispatch = useDispatch();
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
-
-  //const [playingShortBreak, togglePlayingShortBreak] = useAudio(beachMusic);
-  //const [playingLongBreak, togglePlayingLongBreak] = useAudio(rainMusic);
-
   const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);

@@ -13,3 +13,7 @@ code {
 .MuiButton-contained {
   background: none rgba(0, 0, 0, 0.15) !important;
 }
+
+#root {
+  padding-top: 120px;
+}
