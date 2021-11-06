@@ -3,12 +3,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Auth from "../pages/Auth/Auth";
+import Login from "../pages/Auth/Login/Login";
+import Register from "../pages/Auth/Register/Register";
 import Setting from "../pages/Setting/Setting";
 import Music from "../pages/Music/Music";
 import Report from "../pages/Report/Report";
 import NotFound from "../pages/NotFound/NotFound";
-import { ROOT, AUTH, SETTING, MUSIC, REPORT } from "./CONSTANTS";
+import { ROOT, LOGIN, REGISTER, SETTING, MUSIC, REPORT } from "./CONSTANTS";
 
 export const RouterConfig = (props) => {
   return (
@@ -18,7 +19,8 @@ export const RouterConfig = (props) => {
         <Route exact path={ROOT}>
           <Home theme={props.theme} />
         </Route>
-        <Route exact path={AUTH} component={Auth} />
+        <Route exact path={LOGIN} component={Login} />
+        <Route exact path={REGISTER} component={Register} />
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />
         <Route exact path={REPORT} component={Report} />

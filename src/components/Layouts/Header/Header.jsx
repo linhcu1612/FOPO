@@ -13,7 +13,7 @@ import MusicButton from "../../UIs/MusicButton";
 
 //Router
 import { Link } from "react-router-dom";
-import { ROOT, AUTH, SETTING, MUSIC, REPORT } from "../../../routes/CONSTANTS";
+import { ROOT, LOGIN, SETTING, MUSIC, REPORT } from "../../../routes/CONSTANTS";
 
 //logo image
 import logo from "../../../assets/logos/Fopo.png";
@@ -42,7 +42,7 @@ export default function Header(props) {
         <Link to={SETTING}>
           <SettingButton />
         </Link>
-        <Link to={AUTH}>
+        <Link to={LOGIN}>
           <UserAvatar />
         </Link>
       </Stack>
