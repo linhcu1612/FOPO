@@ -1,10 +1,17 @@
 /** @format */
 
 import React from "react";
-import Form from "../../../components/Forms/Form";
-import Field from "../../../components/Forms/Field";
 
-const Login = () => {
+import { useSelector } from "react-redux";
+
+import classes from "./Login.module.css";
+
+const Login = (props) => {
+  const pomo = useSelector((state) => state.pomo.pomoList);
+  const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
+
+  const textColor = pomo[currPomoIndex][`color_${props.theme}`];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -20,11 +27,30 @@ const Login = () => {
 
   return (
     <>
-      <h1>Login</h1>
-      <Form handleSubmit={handleSubmit}>
-        <Field ref={usernameRef} label='Username:' type='text' />
-        <Field ref={passwordRef} label='Password:' type='password' />
-      </Form>
+      <h1 className={classes.header}>Login</h1>
+      <form className={classes.form}>
+        <div>
+          <label className={classes.label}>EMAIL:</label>
+          <input
+            ref={usernameRef}
+            type='text'
+            placeholder='example@gmail.com'
+            className={classes.input}
+          />
+        </div>
+        <div>
+          <label className={classes.label}>PASSWORD:</label>
+          <input ref={passwordRef} type='password' className={classes.input} />
+        </div>
+        <div>
+          <div
+            className={classes.submit_button}
+            style={{ color: textColor }}
+            onClick={handleSubmit}>
+            Login with Email
+          </div>
+        </div>
+      </form>
     </>
   );
 };
