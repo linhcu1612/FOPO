@@ -15,7 +15,7 @@ This project is build from scratch with UI design got inspired from Pomofocus.io
 
 1. Clone the project with:
 
-### `git clone git@github.com:linhcu1612/FOMO.git`
+### `git clone git@github.com:linhcu1612/FOPO.git`
 
 2. In the project directory:
 
