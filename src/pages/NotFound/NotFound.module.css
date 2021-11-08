@@ -1,0 +1,31 @@
+/** @format */
+
+.number_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-size: 180px;
+  margin: 0 !important;
+}
+
+.tomato {
+  height: 200px;
+  width: 200px;
+}
+
+.error {
+  margin: 0;
+  font-size: 48px;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 30px;
+}
