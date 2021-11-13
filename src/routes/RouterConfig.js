@@ -22,7 +22,9 @@ export const RouterConfig = (props) => {
         <Route exact path={LOGIN}>
           <Login theme={props.theme} />
         </Route>
-        <Route exact path={REGISTER} component={Register} />
+        <Route exact path={REGISTER}>
+          <Register theme={props.theme} />
+        </Route>
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />
         <Route exact path={REPORT} component={Report} />
