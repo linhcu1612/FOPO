@@ -28,15 +28,11 @@ export const RouterConfig = (props) => {
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />
         <Route exact path={REPORT} component={Report} />
-        {/* <Route path='/login'>
-          <Login />
-        </Route> */}
 
         {/* List all private/auth routes here */}
         {/* <PrivateRoute path={AUTH_PAGE1}>
           <AuthorizedPage1 />
         </PrivateRoute> */}
-        {/* Do not hesitate to play around by moving some routes from public to private and vice-versa */}
         {/* <PrivateRoute path={DASHBOARD}>
           <Dashboard />
         </PrivateRoute> */}

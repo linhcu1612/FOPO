@@ -2,8 +2,14 @@
 
 import React from "react";
 
+import classes from "./Music.module.css";
+
 const Music = () => {
-  return <div>Music</div>;
+  return (
+    <>
+      <h1 className={classes.header}>Music Album</h1>
+    </>
+  );
 };
 
 export default Music;

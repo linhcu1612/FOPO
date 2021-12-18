@@ -37,6 +37,7 @@ const TasksConfig = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.left_text}>Tasks</div>
+
       <Button
         className={classes.right_button}
         onClick={toggleConfigShowHandler}>

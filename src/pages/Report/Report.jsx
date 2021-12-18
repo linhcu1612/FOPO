@@ -2,8 +2,14 @@
 
 import React from "react";
 
+import classes from "./Report.module.css";
+
 const Report = () => {
-  return <div>Report</div>;
+  return (
+    <>
+      <h1 className={classes.header}>Report</h1>
+    </>
+  );
 };
 
 export default Report;

@@ -46,6 +46,9 @@ const pomoSlice = createSlice({
     changePomo(state, action) {
       state.currPomoIndex = action.payload;
     },
+    increaseDone(state) {
+      state.pomoDone = state.pomoDone + 1;
+    },
   },
 });
 
