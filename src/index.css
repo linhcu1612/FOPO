@@ -17,3 +17,36 @@ code {
 #root {
   padding-top: 120px;
 }
+
+.react-calendar-heatmap-month-label {
+  fill: white !important;
+}
+
+.react-calendar-heatmap-weekday-label {
+  fill: white !important;
+}
+
+.react-calendar-heatmap-weekday-labels {
+  transform: translate(2px, 14px);
+}
+
+.react-calendar-heatmap-month-labels {
+  transform: translate(30px, -2px);
+}
+
+.react-calendar-heatmap .color-scale-0 {
+  fill: #fff;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #d6e685;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #8cc665;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #44a340;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #1e6823;
+}
