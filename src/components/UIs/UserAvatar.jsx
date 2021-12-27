@@ -19,7 +19,7 @@ const LightTooltip = styled(({ className, ...props }) => (
 
 export default function UserAvatar(props) {
   return (
-    <LightTooltip title='Login/Register'>
+    <LightTooltip title='Login'>
       <Button
         onClick={props.onClick}
         style={{

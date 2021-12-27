@@ -9,7 +9,16 @@ import Setting from "../pages/Setting/Setting";
 import Music from "../pages/Music/Music";
 import Report from "../pages/Report/Report";
 import NotFound from "../pages/NotFound/NotFound";
-import { ROOT, LOGIN, REGISTER, SETTING, MUSIC, REPORT } from "./CONSTANTS";
+import Reset from "../pages/Auth/Reset/Reset";
+import {
+  ROOT,
+  LOGIN,
+  REGISTER,
+  SETTING,
+  MUSIC,
+  REPORT,
+  RESET,
+} from "./CONSTANTS";
 
 export const RouterConfig = (props) => {
   return (
@@ -24,6 +33,9 @@ export const RouterConfig = (props) => {
         </Route>
         <Route exact path={REGISTER}>
           <Register theme={props.theme} />
+        </Route>
+        <Route exact path={RESET}>
+          <Reset theme={props.theme} />
         </Route>
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />

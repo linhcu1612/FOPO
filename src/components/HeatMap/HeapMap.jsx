@@ -10,12 +10,14 @@ import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 
 const HeapMap = () => {
-  let startDate = moment().add(-364, "days");
+  let startDate = moment().add(-345, "days");
 
-  let data = Array.from(new Array(365)).map((_, index) => {
+  let data = Array.from(new Array(346)).map((_, index) => {
+    const num = Math.random();
     return {
       date: moment(startDate).add(index, "day"),
-      count: Math.floor(Math.random() * 4),
+      count: Math.floor(num * 4),
+      data: Math.floor(num * 10),
     };
   });
 
@@ -25,7 +27,7 @@ const HeapMap = () => {
     }
     return {
       "data-tip": `${
-        value.count > 0 ? value.count : "No"
+        value.count > 0 ? value.data : "No"
       } pomodoros on ${value.date.format("MMM D, yyyy")}`,
     };
   };

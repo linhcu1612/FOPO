@@ -4,6 +4,10 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import { Link } from "react-router-dom";
+
+import { RESET, REGISTER } from "../../../routes/CONSTANTS";
+
 import classes from "./Login.module.css";
 
 const Login = (props) => {
@@ -50,7 +54,18 @@ const Login = (props) => {
             Login with Email
           </div>
         </div>
+        <div className={classes.forgot_wrapper}>
+          <Link to={RESET}>
+            <div className={classes.forgot_button}>Forgot Password</div>
+          </Link>
+        </div>
       </form>
+      <div className={classes.signup_wrapper}>
+        <div className={classes.signup_text}>Do not have an account?</div>
+        <Link to={REGISTER}>
+          <div className={classes.signup_button}>Create Account</div>
+        </Link>
+      </div>
     </>
   );
 };
