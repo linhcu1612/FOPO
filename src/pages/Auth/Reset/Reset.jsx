@@ -4,6 +4,10 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import { Link } from "react-router-dom";
+
+import { LOGIN } from "../../../routes/CONSTANTS";
+
 import classes from "./Reset.module.css";
 
 const Reset = (props) => {
@@ -25,7 +29,7 @@ const Reset = (props) => {
 
   return (
     <>
-      <h1 className={classes.header}>Login</h1>
+      <h1 className={classes.header}>Reset Password</h1>
       <form className={classes.form}>
         <div>
           <label className={classes.label}>EMAIL:</label>
@@ -45,6 +49,12 @@ const Reset = (props) => {
           </div>
         </div>
       </form>
+      <div className={classes.signup_wrapper}>
+        <div className={classes.signup_text}>Try other methods?</div>
+        <Link to={LOGIN}>
+          <div className={classes.signup_button}>Login</div>
+        </Link>
+      </div>
     </>
   );
 };

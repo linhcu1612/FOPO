@@ -4,6 +4,10 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import { Link } from "react-router-dom";
+
+import { LOGIN } from "../../../routes/CONSTANTS";
+
 import classes from "./Register.module.css";
 
 const Register = (props) => {
@@ -69,6 +73,12 @@ const Register = (props) => {
           </div>
         </div>
       </form>
+      <div className={classes.signup_wrapper}>
+        <div className={classes.signup_text}>Already have an account?</div>
+        <Link to={LOGIN}>
+          <div className={classes.signup_button}>Login</div>
+        </Link>
+      </div>
     </>
   );
 };
