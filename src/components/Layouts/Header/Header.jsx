@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { ROOT, LOGIN, SETTING, MUSIC, REPORT } from "../../../routes/CONSTANTS";
 
 //logo image
-import logo from "../../../assets/logos/Fopo.png";
+import logo from "../../../assets/logos/Fopo.svg";
 
 //css file
 import classes from "./Header.module.css";
@@ -25,7 +25,7 @@ export default function Header(props) {
   return (
     <Box className={classes.header_container} py={3} px={4}>
       <Link to={ROOT} className={classes.header_logo}>
-        FOMO
+        <div>FOMO</div>
         <img src={logo} alt='Fopo Logo' className={classes.header_logo_icon} />
       </Link>
       <DarkLightModeButton

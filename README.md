@@ -9,6 +9,16 @@ This project is build from scratch with UI design got inspired from Pomofocus.io
 - Front-end: React, Redux
 - Design: MUI
 
+# Todo List
+
+- Create mongoDB database
+- Create Express api
+- Finish design for Report page, Setting page and Music Album page
+
+# Idea list
+
+- Intergrate with Spotify to enable multiple song Usage
+
 # Usage Guide
 
 ## For Running The Project Locally
@@ -21,7 +31,7 @@ This project is build from scratch with UI design got inspired from Pomofocus.io
 
 First install node_modules
 
-### `npm install` 
+### `npm install`
 
 Start the project
 
