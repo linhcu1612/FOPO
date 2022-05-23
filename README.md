@@ -14,6 +14,7 @@ This project is build from scratch with UI design got inspired from Pomofocus.io
 - Create mongoDB database
 - Create Express api
 - Finish design for Report page, Setting page and Music Album page
+- Add typescript into the project
 
 # Idea list
 
