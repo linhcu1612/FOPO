@@ -3,7 +3,7 @@
 import React from "react";
 
 import classes from "./NotFound.module.css";
-import Tomato from "../../assets/logos/Tomato.png";
+import Tomato from "../../assets/logo/Tomato.png";
 
 const NotFound = () => {
   return (

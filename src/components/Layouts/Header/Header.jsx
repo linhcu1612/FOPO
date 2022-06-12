@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { ROOT, LOGIN, SETTING, MUSIC, REPORT } from "../../../routes/CONSTANTS";
 
 //logo image
-import logo from "../../../assets/logos/Fopo.svg";
+import logo from "../../../assets/logo/Fopo.svg";
 
 //css file
 import classes from "./Header.module.css";

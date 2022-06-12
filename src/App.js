@@ -56,7 +56,7 @@ function App() {
             padding: "25px",
             borderRadius: "20px",
             marginBottom: "50px",
-            opacity: "0.9",
+            opacity: "0.99",
             transition: "background-color 0.5s ease-in-out 0s",
           }}>
           <RouterConfig theme={theme} />
