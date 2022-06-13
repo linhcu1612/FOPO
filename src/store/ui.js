@@ -12,6 +12,7 @@ const initialUIState = {
       text: "rgb(189, 147, 249)",
       toggleBorder: "#6B8096",
       gradient: "linear-gradient(#091236, #1E215D)",
+      summary_background: "rgb(245, 239, 254)",
     },
     light: {
       background_img: light_default,
@@ -19,6 +20,7 @@ const initialUIState = {
       text: "#FFF",
       toggleBorder: "#fff",
       gradient: "linear-gradient(#39598A, #79D7ED)",
+      summary_background: "rgb(248, 232, 231)",
     },
   },
 };

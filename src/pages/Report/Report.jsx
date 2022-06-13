@@ -13,7 +13,7 @@ const Report = (props) => {
       <h1 className={classes.header}>Report</h1>
       <div className={classes.container}>
         <Summary theme={props.theme} />
-        <HeapMap />
+        <HeapMap theme={props.theme} />
       </div>
     </>
   );

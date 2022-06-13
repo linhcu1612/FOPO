@@ -23,7 +23,6 @@ const Login = (props) => {
       password: passwordRef.current.value,
     };
     const json = JSON.stringify(data, null, 4);
-    console.clear();
     console.log(json);
   };
   const usernameRef = React.useRef();

@@ -6,12 +6,16 @@ import moment from "moment";
 
 import classes from "./HeapMap.module.css";
 
+import { useSelector } from "react-redux";
+
 import ReactTooltip from "react-tooltip";
 
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
 
-const HeapMap = () => {
+const HeapMap = (props) => {
+  const theme = useSelector((state) => state.ui.theme[`${props.theme}`]);
+
   const data = Array.from(new Array(365)).map((_, index) => {
     const num = Math.random();
     return {
@@ -39,7 +43,9 @@ const HeapMap = () => {
     <>
       <div className={classes.header}>
         <div className={classes.text}>Pomodoro Summary</div>
-        <div className={classes.line}></div>
+        <div
+          className={classes.line}
+          style={{ backgroundColor: theme.text }}></div>
       </div>
       <CalendarHeatmap
         startDate={moment().add(-364, "days").format("YYYY-MM-DD")}
@@ -55,7 +61,7 @@ const HeapMap = () => {
           return `color-scale-${value.count}`;
         }}
       />
-      <ReactTooltip />
+      {data && <ReactTooltip />}
     </>
   );
 };
