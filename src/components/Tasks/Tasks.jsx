@@ -35,7 +35,7 @@ const Tasks = (props) => {
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
-      <TasksList theme={props.theme} />
+      <TasksList theme={props.theme} bgColor={props.bgColor} />
       <AddTask addNewTask={addNewTaskHandler} />
       {task.length > 0 && <EstTask est={+estCal()} act={+actCal()} />}
     </div>

@@ -26,7 +26,7 @@ export const RouterConfig = (props) => {
       <Switch>
         {/* List all public routes here */}
         <Route exact path={ROOT}>
-          <Home theme={props.theme} />
+          <Home theme={props.theme} bgColor={props.bgColor} />
         </Route>
         <Route exact path={LOGIN}>
           <Login theme={props.theme} />
@@ -39,7 +39,9 @@ export const RouterConfig = (props) => {
         </Route>
         <Route exact path={SETTING} component={Setting} />
         <Route exact path={MUSIC} component={Music} />
-        <Route exact path={REPORT} component={Report} />
+        <Route exact path={REPORT}>
+          <Report theme={props.theme} />
+        </Route>
 
         {/* List all private/auth routes here */}
         {/* <PrivateRoute path={AUTH_PAGE1}>

@@ -36,7 +36,7 @@ export default function Home(props) {
         playing={playing}
         togglePlaying={togglePlaying}
       />
-      <Tasks theme={props.theme} />
+      <Tasks theme={props.theme} bgColor={props.bgColor} />
     </>
   );
 }

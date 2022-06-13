@@ -11,7 +11,12 @@ const TasksList = (props) => {
   return (
     <div>
       {task.map((task) => (
-        <Task key={task.id} {...task} theme={props.theme} />
+        <Task
+          key={task.id}
+          {...task}
+          theme={props.theme}
+          bgColor={props.bgColor}
+        />
       ))}
     </div>
   );

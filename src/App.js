@@ -59,7 +59,7 @@ function App() {
             opacity: "0.99",
             transition: "background-color 0.5s ease-in-out 0s",
           }}>
-          <RouterConfig theme={theme} />
+          <RouterConfig theme={theme} bgColor={bgColor} />
         </Container>
       </BrowserRouter>
     </ThemeProvider>

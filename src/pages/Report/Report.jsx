@@ -7,12 +7,12 @@ import Summary from "../../components/Report/Summary";
 
 import classes from "./Report.module.css";
 
-const Report = () => {
+const Report = (props) => {
   return (
     <>
       <h1 className={classes.header}>Report</h1>
       <div className={classes.container}>
-        <Summary />
+        <Summary theme={props.theme} />
         <HeapMap />
       </div>
     </>
