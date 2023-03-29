@@ -18,10 +18,10 @@ const app = express();
 app.use(express.json({ extended: false }));
 
 // *TEST ROUTE
-// app.use('/test',(req,res)=>{
-//     console.log("/test request called");
-//     res.send('Welcome to GeeksforGeeks');
-// })
+app.use("/test", (req, res) => {
+  console.log("/test request called");
+  res.send("Welcome to GeeksforGeeks");
+});
 
 // *CONTACT ROUTE
 // app.use("/api/contacts", require("./routes/contact"));

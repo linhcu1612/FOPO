@@ -22,7 +22,7 @@ import {
 
 export const RouterConfig = (props) => {
   return (
-    <div>
+    <>
       <Switch>
         <Route exact path={ROOT}>
           <Home theme={props.theme} bgColor={props.bgColor} />
@@ -53,6 +53,6 @@ export const RouterConfig = (props) => {
           <NotFound />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 };

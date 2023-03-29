@@ -1,21 +1,17 @@
-const mongoose=require('mongoose');
-// const config=require('config');
-// require('dotenv').config()
+/** @format */
 
-// const db=config.get('mongoURI');
+const mongoose = require("mongoose");
 
-//**PROTECT CREDS WITH THIS .ENV INSTEAD OF BRADS' DEFAULTJSON
- const db = process.env.MY_MONGO_URI;
+const db = process.env.MONGODB_URL;
 
-const connectDB =async()=>{
-    try {
-
-        await mongoose.connect(db);
-        console.log('MongoDB is Connected...')
-    } catch (err) {
-        console.error(err.message);
-        console.log('Check Your ENV VAR')
-        process.exit(1)
-    }
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(db);
+    console.log("MongoDB is Connected...");
+  } catch (err) {
+    console.error(err.message);
+    console.log("Check Your ENV VAR");
+    process.exit(1);
+  }
+};
 module.exports = connectDB;
