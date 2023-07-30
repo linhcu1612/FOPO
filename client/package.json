@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.1",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.1.0",
@@ -14,7 +15,6 @@
     "@testing-library/user-event": "^12.1.10",
     "moment": "^2.29.1",
     "react": "^17.0.2",
-    "react-calendar-heatmap": "^1.8.1",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",

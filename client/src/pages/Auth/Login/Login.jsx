@@ -8,9 +8,12 @@ import { Link } from "react-router-dom";
 
 import { RESET, REGISTER } from "../../../routes/CONSTANTS";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
 import classes from "./Login.module.css";
 
 const Login = (props) => {
+  const { loginWithRedirect } = useAuth0();
   const pomo = useSelector((state) => state.pomo.pomoList);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
@@ -18,12 +21,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = {
-      username: usernameRef.current.value,
-      password: passwordRef.current.value,
-    };
-    const json = JSON.stringify(data, null, 4);
-    console.log(json);
+    loginWithRedirect();
   };
   const usernameRef = React.useRef();
   const passwordRef = React.useRef();
