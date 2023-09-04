@@ -1,41 +1,55 @@
 /** @format */
 
-// *SERVER
 const express = require("express");
-const path = require("path");
-require("dotenv").config();
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const bodyParser = require("body-parser");
+const keys = require("./config/keys");
+require("./models/User");
+require("./models/Pomo");
+require("./models/Task");
+require("./models/Theme");
+require("./services/passport");
 
-// Connect MongoDB
-const connectDB = require("./config/db");
-connectDB();
-
-// const seedConnectDB=require('./seed/seeds')
-// seedConnectDB()
+mongoose
+  .connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .then(() => console.log("Success"));
 
 const app = express();
-//*MIDDLEWARE
-//  replaced body parser
-app.use(express.json({ extended: false }));
 
-// *TEST ROUTE
-app.use("/test", (req, res) => {
-  console.log("/test request called");
-  res.send("Welcome to GeeksforGeeks");
-});
+app.use(bodyParser.json());
 
-// *CONTACT ROUTE
-// app.use("/api/contacts", require("./routes/contact"));
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey],
+  })
+);
 
-//* Serve static assets in production, must be at this location of this file
+app.use(passport.initialize());
+
+app.use(passport.session());
+
+require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
+
 if (process.env.NODE_ENV === "production") {
-  //*Set static folder
   app.use(express.static("client/build"));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-  );
+  const path = require("path");
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => console.log(`Server started port ${PORT}`));
+app.listen(PORT);
