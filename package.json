@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.6.0",
     "config": "^3.3.8",
+    "cookie-session": "^2.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.0",
