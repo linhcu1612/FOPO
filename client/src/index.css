@@ -5,6 +5,11 @@ body {
   padding: 0;
 }
 
+body::after {
+  position:absolute; width:0; height:0; overflow:hidden; z-index:-1; 
+  content:url(./assets/background/dark_default.jpeg) url(./assets/background/light_default.jpeg);  
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

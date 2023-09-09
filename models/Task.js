@@ -9,10 +9,11 @@ const taskSchema = new Schema({
     ref: "User",
   },
   title: String,
-  body: String,
-  subject: String,
-  dateSend: Date,
-  lastResponded: Date,
+  description: String,
+  estimated: Number,
+  dateDone: Date,
+  dateCreated: Date,
+  isDone: Date,
 });
 
 mongoose.model("Task", taskSchema);
