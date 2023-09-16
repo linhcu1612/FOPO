@@ -1,5 +1,7 @@
 /** @format */
 
+import { useEffect, useState } from "react";
+
 import Container from "@mui/material/Container";
 import Header from "./components/Layouts/Header/Header";
 import Loader from "./components/UIs/Loader";
@@ -14,16 +16,14 @@ import { useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { RouterConfig } from "./routes/RouterConfig";
 
-const Background = styled.div`
+const Background = styled.img`
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
-  background-image: ${({ theme }) => `url(${theme.background_img})`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: background-image 0.5s linear;
 `;
 
 function App() {
@@ -31,12 +31,35 @@ function App() {
   const ui = useSelector((state) => state.ui);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
   const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const cacheImages = async (srcArray) => {
+    const promises = await srcArray.map((src) => {
+      return new Promise(function (resolve, reject) {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve();
+        img.onerror = reject();
+      });
+    });
+
+    await Promise.all(promises);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    const imageList = [
+      ui.theme.dark.background_img,
+      ui.theme.light.background_img,
+    ];
+    cacheImages(imageList);
+  }, []);
 
   const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
 
   const bgColor = pomo[currPomoIndex][`color_${theme}`];
 
-  if (!mountedComponent) {
+  if (!mountedComponent && isLoading) {
     return (
       <ThemeProvider theme={themeMode}>
         <Loader quote='Loading' />
@@ -46,7 +69,7 @@ function App() {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
-      <Background />
+      <Background src={themeMode.background_img} />
       <BrowserRouter>
         <Header changeTheme={themeToggler} theme={theme} />
         <Container
@@ -57,7 +80,6 @@ function App() {
             borderRadius: "20px",
             marginBottom: "50px",
             opacity: "0.99",
-            transition: "background-color 0.5s ease-in-out 0s",
           }}>
           <RouterConfig theme={theme} bgColor={bgColor} />
         </Container>

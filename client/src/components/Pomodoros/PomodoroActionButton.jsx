@@ -11,7 +11,7 @@ export default function PomodoroActionButton(props) {
   return (
     <>
       <button
-        style={{ color: props.color, transition: "color 0.5s ease-in-out 0s" }}
+        style={{ color: props.color }}
         className={!props.running ? classes.button : classes.button_start}
         value={props.id}
         onClickCapture={handlePomoActionButtonClick}>

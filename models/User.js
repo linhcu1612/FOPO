@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   username: String,
   password: { type: String, required: true },
   avatar: String,
-  themes: { type: mongoose.Types.ObjectId, ref: "Theme" },
+  themes: [{ type: mongoose.Types.ObjectId, ref: "Theme" }],
   tasks: [{ type: mongoose.Types.ObjectId, ref: "Task" }],
   pomos: [{ type: mongoose.Types.ObjectId, ref: "Pomo" }],
 });

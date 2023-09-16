@@ -1,20 +1,22 @@
 /** @format */
 
 import { createSlice } from "@reduxjs/toolkit";
-import dark_default from "../assets/background/dark_default.jpeg";
-import light_default from "../assets/background/light_default.jpeg";
+// import dark_default from "../assets/background/dark_default.jpeg";
+// import light_default from "../assets/background/light_default.jpeg";
 
 const initialUIState = {
   theme: {
     dark: {
-      background_img: dark_default,
+      background_img:
+        "https://fopo-lucas.s3.ap-southeast-2.amazonaws.com/img/dark_default.jpeg",
       text: "rgb(189, 147, 249)",
       toggleBorder: "#6B8096",
       gradient: "linear-gradient(#091236, #1E215D)",
       summary_background: "rgb(245, 239, 254)",
     },
     light: {
-      background_img: light_default,
+      background_img:
+        "https://fopo-lucas.s3.ap-southeast-2.amazonaws.com/img/light_default.jpeg",
       text: "#FFF",
       toggleBorder: "#fff",
       gradient: "linear-gradient(#39598A, #79D7ED)",
