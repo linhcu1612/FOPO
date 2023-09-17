@@ -1,9 +1,9 @@
 /** @format */
 
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import taskReducer from "./task";
-import pomoReducer from "./pomo";
-import uiReducer from "./ui";
+import taskReducer from "./task/taskSlice";
+import pomoReducer from "./pomo/pomoSlice";
+import uiReducer from "./ui/uiSlice";
 import authReducer from "./auth/authSlice";
 
 const customizedMiddleware = getDefaultMiddleware({
