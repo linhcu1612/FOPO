@@ -16,7 +16,7 @@ export default function Home(props) {
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
 
   useEffect(() => {
-    setAudio(pomo[currPomoIndex].music);
+    setAudio(new Audio(pomo[currPomoIndex].music));
   }, [currPomoIndex, setAudio, pomo]);
 
   const currTimerHanlder = (time) => {

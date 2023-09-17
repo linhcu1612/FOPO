@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     color: ${({ theme }) => theme.text};
     margin: 0;
-    font-family: "Nunito", sans-serif;
+    font-family: "Nunito", sans-serif !important;
     font-weight: 300;
     position: relative;
   }

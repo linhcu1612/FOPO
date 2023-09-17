@@ -53,7 +53,7 @@ function App() {
       ui.theme.light.background_img,
     ];
     cacheImages(imageList);
-  }, []);
+  }, [ui]);
 
   const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
 
