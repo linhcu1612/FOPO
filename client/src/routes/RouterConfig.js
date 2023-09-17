@@ -4,6 +4,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login/Login";
+import Account from "../pages/Auth/Account/Account";
 import Register from "../pages/Auth/Register/Register";
 import Setting from "../pages/Setting/Setting";
 import Music from "../pages/Music/Music";
@@ -19,6 +20,7 @@ import {
   MUSIC,
   REPORT,
   RESET,
+  ACCOUNT,
 } from "./CONSTANTS";
 
 export const RouterConfig = (props) => {
@@ -41,6 +43,7 @@ export const RouterConfig = (props) => {
           <Route exact path={SETTING} element={<Setting />} />
           <Route exact path={MUSIC} element={<Music />} />
           <Route exact path={REPORT} element={<Report theme={props.theme} />} />
+          <Route exact path={ACCOUNT} element={<Account />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

@@ -16,7 +16,7 @@ const Unauthorized = (props) => {
   const textColor = pomo[currPomoIndex][`color_${props.theme}`];
   return (
     <div className={classes.wrapper}>
-      <h1 className={classes.header}>UNAUTHORIZED</h1>
+      <h1 className={classes.header}>Unauthorized</h1>
       <div className={classes.btn_wrapper}>
         <Link to={LOGIN} className={classes.link_wrapper}>
           <div className={classes.btn} style={{ color: textColor }}>
