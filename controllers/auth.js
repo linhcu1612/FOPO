@@ -1,6 +1,7 @@
 /** @format */
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const init = require("../initDB.json");
 
 const registerUser = async (request, response) => {
   const user = new User({
@@ -9,20 +10,34 @@ const registerUser = async (request, response) => {
     username: request.body.username,
   });
 
-  const returned = await user.save().catch((err) => {
+  try {
+    const returned = await user.save();
+    if (returned) {
+      init.pomos.forEach(async (pomo) => {
+        const newPomo = new Pomo({
+          _user: returned._id,
+          order: pomo.order,
+          title: pomo.title,
+          audio: pomo.audio,
+          minute: pomo.minute,
+          color_dark: pomo.color_dark,
+          color_light: pomo.color_light,
+        });
+        await newPomo.save();
+      });
+
+      if (user._id) {
+        response.json({
+          status: "success",
+          username: returned.username,
+          token: returned._id,
+        });
+        response.status(201);
+      }
+    }
+  } catch (err) {
     response.status(404);
     response.json({ status: "error", message: "User already exists" });
-  });
-
-  if (returned) {
-    if (user._id) {
-      response.json({
-        status: "success",
-        username: returned.username,
-        token: returned._id,
-      });
-      response.status(201);
-    }
   }
 };
 

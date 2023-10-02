@@ -86,7 +86,7 @@ const getPomos = async (request, response) => {
   if (user) {
     try {
       const pomos = await Pomo.find({ _user: user._id });
-      response.json({ pomos });
+      response.json(pomos);
     } catch (error) {
       console.error(error);
       response.sendStatus(500);
@@ -96,9 +96,29 @@ const getPomos = async (request, response) => {
   }
 };
 
+const getPomo = async (request, response) => {
+  const user = await validUser(request);
+  const pomoId = request.params.pomoId;
+
+  if (user) {
+    try {
+      const pomo = await Pomo.find({ _user: user._id, _id: pomoId });
+      response.json({ pomo });
+    } catch (error) {
+      console.error(error);
+      response.sendStatus(500);
+    }
+  } else {
+    response.sendStatus(401);
+  }
+};
+
+const initPomos = async (request, response) => {};
+
 module.exports = {
   createPomo,
   editPomo,
   deletePomo,
   getPomos,
+  getPomo,
 };

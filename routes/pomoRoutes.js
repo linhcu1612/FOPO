@@ -4,7 +4,9 @@ const pomo = require("../controllers/pomo");
 module.exports = (app) => {
   app.post("/api/pomo", pomo.createPomo);
 
-  app.get("/api/pomo", pomo.getPomos);
+  app.get("/api/pomos", pomo.getPomos);
+
+  app.get("/api/pomo/:pomoId", pomo.getPomo);
 
   app.put("/api/pomo/:pomoId", pomo.editPomo);
 

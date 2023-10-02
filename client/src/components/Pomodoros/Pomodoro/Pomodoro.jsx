@@ -14,11 +14,13 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import classes from "./Pomodoro.module.css";
+import { pomoList } from "../../../store/pomo/pomoActions";
 
 export default function Pomodoro(props) {
   const dispatch = useDispatch();
   const pomo = useSelector((state) => state.pomo.pomoList);
-  const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
+  const currPomoIndex = 0;
+  //useSelector((state) => state.pomo.currPomoIndex);
   const [pomoMinute, setPomoMinute] = useState(pomo[0].minute);
   const [pomoSecond, setPomoSecond] = useState(0);
   const [pomoRun, setPomoRun] = useState(false);
@@ -49,6 +51,10 @@ export default function Pomodoro(props) {
       pomoTopBarHandler(+currPomoIndex + 1);
     }
   }, [currPomoIndex, pomoTopBarHandler]);
+
+  useEffect(() => {
+    dispatch(pomoList());
+  }, [dispatch]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

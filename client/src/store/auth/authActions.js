@@ -4,7 +4,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const authLogin = createAsyncThunk(
-  "api/auth/login",
+  "auth/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
@@ -15,7 +15,7 @@ export const authLogin = createAsyncThunk(
       };
 
       const { data } = await axios.post(
-        "/auth/login",
+        "/api/auth/login",
         { email: email, password: password },
         config
       );
@@ -36,7 +36,7 @@ export const authLogin = createAsyncThunk(
 );
 
 export const authRegister = createAsyncThunk(
-  "api/auth/register",
+  "auth/register",
   async ({ email, password, username }, { rejectWithValue }) => {
     try {
       const config = {
@@ -46,7 +46,7 @@ export const authRegister = createAsyncThunk(
       };
 
       await axios.post(
-        "/auth/register",
+        "/api/auth/register",
         { username: username, password: password, email: email },
         config
       );
@@ -61,7 +61,7 @@ export const authRegister = createAsyncThunk(
 );
 
 export const authDetail = createAsyncThunk(
-  "api/auth/detail",
+  "auth/detail",
   async (arg, { getState, rejectWithValue }) => {
     try {
       // get user data from store
@@ -74,7 +74,7 @@ export const authDetail = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get(`/auth`, config);
+      const { data } = await axios.get(`/api/auth`, config);
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
