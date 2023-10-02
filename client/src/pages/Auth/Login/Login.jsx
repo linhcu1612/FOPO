@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { REGISTER } from "../../../routes/CONSTANTS";
 
-import Error from "../../../components/UIs/Error";
+import Error from "../../../components/UIs/Error/Error";
 
 import { authLogin } from "../../../store/auth/authActions";
 import { switchPage } from "../../../store/auth/authSlice";

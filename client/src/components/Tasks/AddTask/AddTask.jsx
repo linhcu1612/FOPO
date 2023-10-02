@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import classes from "./AddTask.module.css";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import TaskDetailForm from "./TaskDetailForm";
+import TaskDetailForm from "../TaskDetailForm/TaskDetailForm";
 
 const AddTask = (props) => {
   const [addNewTask, setAddNewTask] = useState(false);

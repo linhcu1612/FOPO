@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useAudio } from "../../hooks/useAudio";
-import Pomodoro from "../../components/Pomodoros/Pomodoro";
+import Pomodoro from "../../components/Pomodoros/Pomodoro/Pomodoro";
 import Tasks from "../../components/Tasks/Tasks";
 
 import { useSelector } from "react-redux";

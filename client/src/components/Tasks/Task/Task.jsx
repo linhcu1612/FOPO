@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Button from "@mui/material/Button";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import TaskDetailForm from "./TaskDetailForm";
+import TaskDetailForm from "../TaskDetailForm/TaskDetailForm";
 
 import { useDispatch, useSelector } from "react-redux";
-import { taskActions } from "../../store/task";
+import { taskActions } from "../../../store/task/taskSlice";
 
 import classes from "./Task.module.css";
 

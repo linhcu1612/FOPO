@@ -2,14 +2,14 @@
 
 import React from "react";
 
-import CurrentTask from "./CurrentTask";
-import TasksConfig from "./TasksConfig";
-import TasksList from "./TasksList";
-import AddTask from "./AddTask";
-import EstTask from "./EstTask";
+import CurrentTask from "./CurrentTask/CurrentTask";
+import TasksConfig from "./TasksConfig/TasksConfig";
+import AddTask from "./AddTask/AddTask";
+import EstTask from "./EstTask/EstTask";
+import Task from "./Task/Task";
 
 import { useSelector, useDispatch } from "react-redux";
-import { taskActions } from "../../store/task";
+import { taskActions } from "../../store/task/taskSlice";
 
 const Tasks = (props) => {
   const dispatch = useDispatch();
@@ -35,7 +35,16 @@ const Tasks = (props) => {
     <div style={{ margin: "auto 70px" }}>
       <CurrentTask />
       <TasksConfig />
-      <TasksList theme={props.theme} bgColor={props.bgColor} />
+      <div>
+        {task.map((task) => (
+          <Task
+            key={task.id}
+            {...task}
+            theme={props.theme}
+            bgColor={props.bgColor}
+          />
+        ))}
+      </div>
       <AddTask addNewTask={addNewTaskHandler} />
       {task.length > 0 && <EstTask est={+estCal()} act={+actCal()} />}
     </div>

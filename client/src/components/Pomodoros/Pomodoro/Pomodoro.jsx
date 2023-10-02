@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { pomoActions } from "../../store/pomo";
+import { pomoActions } from "../../../store/pomo/pomoSlice";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
-import PomodoroTopBarButton from "./PomodoroTopBarButton";
-import PomodoroActionButton from "./PomodoroActionButton";
+import PomodoroTopBarButton from "../PomodoroTopBarButton/PomodoroTopBarButton";
+import PomodoroActionButton from "../PomodoroActionButton/PomodoroActionButton";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 
 import Stack from "@mui/material/Stack";

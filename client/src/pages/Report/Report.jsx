@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import Summary from "../../components/Report/Summary";
+import Summary from "../../components/Report/Summary/Summary";
 
 import classes from "./Report.module.css";
 

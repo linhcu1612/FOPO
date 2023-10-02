@@ -8,7 +8,7 @@ import { FaRegClock } from "react-icons/fa";
 import { BsCalendar3 } from "react-icons/bs";
 import { AiOutlineFire } from "react-icons/ai";
 
-import Category from "./Category";
+import Category from "../Category/Category";
 
 import classes from "./Summary.module.css";
 

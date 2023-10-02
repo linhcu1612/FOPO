@@ -2,10 +2,6 @@
 
 import React from "react";
 
-import { Link } from "react-router-dom";
-
-import { useSelector } from "react-redux";
-
 import classes from "./Account.module.css";
 
 const Account = (props) => {

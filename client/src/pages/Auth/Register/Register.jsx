@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import { LOGIN } from "../../../routes/CONSTANTS";
 
-import Error from "../../../components/UIs/Error";
+import Error from "../../../components/UIs/Error/Error";
 
 import { useNavigate } from "react-router-dom";
 

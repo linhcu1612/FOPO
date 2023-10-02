@@ -6,7 +6,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Button from "@mui/material/Button";
 
 import { useSelector, useDispatch } from "react-redux";
-import { taskActions } from "../../store/task";
+import { taskActions } from "../../../store/task/taskSlice";
 
 import classes from "./TaskDetailForm.module.css";
 

@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 import Container from "@mui/material/Container";
-import Header from "./components/Layouts/Header/Header";
-import Loader from "./components/UIs/Loader";
+import Header from "./components/Layouts/Header";
+import Loader from "./components/UIs/Loader/Loader";
 
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/globalStyles";

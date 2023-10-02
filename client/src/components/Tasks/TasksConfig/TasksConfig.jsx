@@ -7,7 +7,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DoneIcon from "@mui/icons-material/Done";
 
 import { useDispatch } from "react-redux";
-import { taskActions } from "../../store/task";
+import { taskActions } from "../../../store/task/taskSlice";
 
 import classes from "./TasksConfig.module.css";
 

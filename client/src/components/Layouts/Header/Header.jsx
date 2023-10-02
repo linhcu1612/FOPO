@@ -5,11 +5,11 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
 //UIs Components
-import ReportButton from "../../UIs/ReportButton";
-import SettingButton from "../../UIs/SettingButton";
-import UserAvatar from "../../UIs/UserAvatar";
-import DarkLightModeButton from "../../UIs/DarkLightModeButton";
-import MusicButton from "../../UIs/MusicButton";
+import ReportButton from "../../UIs/HeaderButton/ReportButton";
+import SettingButton from "../../UIs/HeaderButton/SettingButton";
+import UserAvatar from "../../UIs/HeaderButton/UserAvatar";
+import DarkLightModeButton from "../../UIs/DarkLightModeButton/DarkLightModeButton";
+import MusicButton from "../../UIs/HeaderButton/MusicButton";
 
 //Router
 import { Link } from "react-router-dom";
