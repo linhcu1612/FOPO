@@ -8,6 +8,7 @@ const pomoSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  order: Number,
   title: String,
   audio: String,
   minute: Number,

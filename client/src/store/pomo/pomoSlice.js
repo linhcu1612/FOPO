@@ -9,7 +9,7 @@ const initialPomoState = {
       title: "Pomodoro",
       music:
         "https://fopo-lucas.s3.ap-southeast-2.amazonaws.com/audio/classical.mp3",
-      minute: 27,
+      minute: 25,
       color_dark: "rgb(56,58,88)",
       color_light: "rgb(215, 75, 71)",
     },

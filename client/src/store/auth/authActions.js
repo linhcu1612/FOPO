@@ -4,7 +4,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const authLogin = createAsyncThunk(
-  "auth/login",
+  "api/auth/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       // configure header's Content-Type as JSON
@@ -36,7 +36,7 @@ export const authLogin = createAsyncThunk(
 );
 
 export const authRegister = createAsyncThunk(
-  "auth/register",
+  "api/auth/register",
   async ({ email, password, username }, { rejectWithValue }) => {
     try {
       const config = {
@@ -61,7 +61,7 @@ export const authRegister = createAsyncThunk(
 );
 
 export const authDetail = createAsyncThunk(
-  "auth/detail",
+  "api/auth/detail",
   async (arg, { getState, rejectWithValue }) => {
     try {
       // get user data from store
