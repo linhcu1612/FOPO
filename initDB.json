@@ -25,7 +25,7 @@
       "color_light": "rgb(67, 126, 168)"
     }
   ],
-  "uis": [
+  "themes": [
     {
       "type": "dark",
       "background_img": "https://fopo-lucas.s3.ap-southeast-2.amazonaws.com/img/dark_default.jpeg",

@@ -5,10 +5,10 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
-require("./models/User");
-require("./models/Pomo");
-require("./models/Task");
-require("./models/Theme");
+require("./models/user.model");
+require("./models/pomo.model");
+require("./models/task.model");
+require("./models/theme.model");
 
 mongoose
   .connect(keys.mongoURI, {
@@ -31,8 +31,10 @@ app.use(
   })
 );
 
-require("./routes/authRoutes")(app);
-require("./routes/pomoRoutes")(app);
+require("./routes/auth.route")(app);
+require("./routes/pomo.route")(app);
+// require("./routes/task.route")(app);
+require("./routes/theme.route")(app);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

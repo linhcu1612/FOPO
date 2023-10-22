@@ -1,5 +1,5 @@
 /** @format */
-const pomo = require("../controllers/pomo");
+const pomo = require("../controllers/pomo.controller");
 
 module.exports = (app) => {
   app.post("/api/pomo", pomo.createPomo);

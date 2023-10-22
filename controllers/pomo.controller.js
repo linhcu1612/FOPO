@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 const Pomo = mongoose.model("Pomo");
-const { validUser } = require("../controllers/auth");
+const { validUser } = require("./auth.controller");
 
 const createPomo = async (request, response) => {
   const user = await validUser(request);

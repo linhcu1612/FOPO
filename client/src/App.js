@@ -10,11 +10,14 @@ import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/globalStyles";
 
 import { useDarkMode } from "./hooks/useDarkMode";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 // ROUTER
 import { BrowserRouter } from "react-router-dom";
 import { RouterConfig } from "./routes/RouterConfig";
+
+import { pomoList } from "./store/pomo/pomoActions";
+import { themeList } from "./store/theme/themeActions";
 
 const Background = styled.img`
   height: 100%;
@@ -27,6 +30,8 @@ const Background = styled.img`
 `;
 
 function App() {
+  const dispatch = useDispatch();
+
   const pomo = useSelector((state) => state.pomo.pomoList);
   const ui = useSelector((state) => state.ui);
   const currPomoIndex = useSelector((state) => state.pomo.currPomoIndex);
@@ -48,6 +53,11 @@ function App() {
   };
 
   useEffect(() => {
+    dispatch(pomoList());
+    dispatch(themeList());
+  }, [dispatch]);
+
+  useEffect(() => {
     const imageList = [
       ui.theme.dark.background_img,
       ui.theme.light.background_img,
@@ -55,9 +65,23 @@ function App() {
     cacheImages(imageList);
   }, [ui]);
 
-  const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
+  // const themeMode = theme === "light" ? ui.theme.light : ui.theme.dark;
 
-  const bgColor = pomo[currPomoIndex][`color_${theme}`];
+  const themeMode = {
+    type: "dark",
+    background_img:
+      "https://fopo-lucas.s3.ap-southeast-2.amazonaws.com/img/dark_default.jpeg",
+    text: "rgb(189, 147, 249)",
+    toggleBorder: "#6B8096",
+    gradient: "linear-gradient(#091236, #1E215D)",
+    summary_background: "rgb(245, 239, 254)",
+  };
+
+  console.log(pomo);
+
+  // const bgColor = pomo[currPomoIndex][`color_${theme}`];
+
+  const bgColor = "#2d3050";
 
   if (!mountedComponent && isLoading) {
     return (

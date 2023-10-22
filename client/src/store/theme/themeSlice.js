@@ -2,7 +2,7 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialUIState = {
+const initialThemeState = {
   theme: [
     {
       type: "dark",
@@ -25,9 +25,9 @@ const initialUIState = {
   ],
 };
 
-const uiSlice = createSlice({
+const themeSlice = createSlice({
   name: "ui",
-  initialState: initialUIState,
+  initialState: initialThemeState,
   reducers: {
     // changePomo(state, action) {
     //   state.currPomoIndex = action.payload;
@@ -35,5 +35,5 @@ const uiSlice = createSlice({
   },
 });
 
-export const pomoActions = uiSlice.actions;
-export default uiSlice.reducer;
+export const pomoActions = themeSlice.actions;
+export default themeSlice.reducer;

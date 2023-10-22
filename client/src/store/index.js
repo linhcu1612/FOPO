@@ -3,7 +3,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import taskReducer from "./task/taskSlice";
 import pomoReducer from "./pomo/pomoSlice";
-import uiReducer from "./ui/uiSlice";
+import themeReducer from "./theme/themeSlice";
 import authReducer from "./auth/authSlice";
 
 const customizedMiddleware = getDefaultMiddleware({
@@ -14,7 +14,7 @@ const store = configureStore({
   reducer: {
     task: taskReducer,
     pomo: pomoReducer,
-    ui: uiReducer,
+    theme: themeReducer,
     auth: authReducer,
   },
   middleware: customizedMiddleware,
